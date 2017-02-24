@@ -37,13 +37,13 @@ export class AlfrescoSearchService {
      * @param options Additional options passed to the search
      * @returns {Observable<NodePaging>} Search results
      */
-    getNodeQueryResults(term: string, options?: SearchOptions): Observable<NodePaging> {
+    public getNodeQueryResults(term: string, options?: SearchOptions): Observable<NodePaging> {
         return Observable.fromPromise(this.getQueryNodesPromise(term, options))
             .map(res => <NodePaging> res)
             .catch(err => this.handleError(err));
     }
 
-    getQueryNodesPromise(term: string, opts: SearchOptions): Promise<NodePaging> {
+    public getQueryNodesPromise(term: string, opts: SearchOptions): Promise<NodePaging> {
         return this.apiService.getInstance().core.queriesApi.findNodes(term, opts);
     }
 
