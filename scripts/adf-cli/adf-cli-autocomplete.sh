@@ -58,13 +58,13 @@ eval 'alias adff="export SPEED=1; adf-cli "$@""'
 eval 'alias adfff="export SPEED=2; adf-cli "$@""'
 
 #  Main directories
-eval 'alias adf$SCRIPTS="cd `adf dir $SCRIPTS`"'
-eval 'alias adf$COMPONENTS_DIRNAME="cd `adf dir $COMPONENTS_DIRNAME`"'
-eval 'alias adf$DEMOSHELL="cd `adf dir $DEMOSHELL`"'
+eval 'alias adf$SCRIPTS="echo Entering `adf dir $SCRIPTS`; cd `adf dir $SCRIPTS`"'
+eval 'alias adf$COMPONENTS_DIRNAME="echo Entering `adf dir $COMPONENTS_DIRNAME`; cd `adf dir $COMPONENTS_DIRNAME`"'
+eval 'alias adf$DEMOSHELL="echo Entering `adf dir $DEMOSHELL`; cd `adf dir $DEMOSHELL`"'
 
 # Components
 for component in "${COMPONENTS[@]}"
 do
-    eval 'alias adf$component="cd `adf dir $component`"'
+    eval 'alias adf$component="echo Entering `adf dir $component`; cd `adf dir $component`"'
 done
 
