@@ -7,25 +7,32 @@
 # adf help
 # adf ls
 # adf[f][f] demo [gitjsapi commit-ish]
+# adf[f][f] dir [component name without prefix | demo | script]
 # adf[f][f] build [component name without prefix] [gitjsapi commit-ish]
 # adf[f][f] test [component name without prefix] [gitjsapi commit-ish]
 # adf[f][f] debug [component name without prefix] [gitjsapi commit-ish]
 
 CLIDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+. $CLIDIR/.cli-variables
 
 _adf()
 {
-    local cur prev commands components
+    . $CLIDIR/.cli-variables
+    local cur prev commands
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
 
-    commands="help ls demo build test debug"
-    components=`ls $CLIDIR/../../ng2-components/ | grep ng2 | sed 's/^ng2-//' | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/ /g'`
+    # Available commands
+    commands="help list demo build test debug dir"
 
     case "${prev}" in
-        ls|build|test|debug)
-            COMPREPLY=( $(compgen -W "${components}" -- ${cur}) )
+        list|build|test|debug)
+            COMPREPLY=( $(compgen -W "${COMPONENTS[*]// /|}" -- ${cur}) )
+            return 0
+            ;;
+        dir)
+            COMPREPLY=( $(compgen -W "${COMPONENTS[*]// /|} $SCRIPTS $DEMOSHELL $COMPONENTS_DIRNAME" -- ${cur}) )
             return 0
             ;;
         *)
@@ -42,3 +49,22 @@ _adf()
 complete -F _adf adf
 complete -F _adf adff
 complete -F _adf adfff
+
+# Aliases... Aliases everywhere...
+
+# adff and adfff
+eval 'alias adf="export SPEED=0; adf-cli "$@""'
+eval 'alias adff="export SPEED=1; adf-cli "$@""'
+eval 'alias adfff="export SPEED=2; adf-cli "$@""'
+
+#  Main directories
+eval 'alias adf$SCRIPTS="cd `adf dir $SCRIPTS`"'
+eval 'alias adf$COMPONENTS_DIRNAME="cd `adf dir $COMPONENTS_DIRNAME`"'
+eval 'alias adf$DEMOSHELL="cd `adf dir $DEMOSHELL`"'
+
+# Components
+for component in "${COMPONENTS[@]}"
+do
+    eval 'alias adf$component="cd `adf dir $component`"'
+done
+

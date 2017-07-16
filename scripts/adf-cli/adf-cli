@@ -1,0 +1,91 @@
+#!/usr/bin/env bash
+set -e
+CLIDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+. $CLIDIR/.cli-variables
+. $CLIDIR/.cli-helpers
+
+show_help() {
+    cat $CLIDIR/.header
+    echo "Usage: adf[f][f] command [command options, like component name or jsapi gitish]"
+    echo ""
+    echo "Commands:"
+    echo "build      - build package(s)"
+    echo "debug      - run package test in browser to be able to debug"
+    echo "demo       - start demo shell with local components"
+    echo "dir        - show absolute path for: <component>|demo|scripts"
+    echo "help       - show this help"
+    echo "list       - show available entries"
+    echo "test       - test package(s)"
+}
+
+show_path() {
+    if ( _is_component $1 == true ); then
+        local component=`_get_component $1`
+        echo `_beautify_directory_name $COMPONENTSDIR/$component`
+    elif [ "$1" == $COMPONENTS_DIRNAME ]; then
+        echo `_beautify_directory_name $COMPONENTSDIR`        
+    elif [ "$1" == $DEMOSHELL ]; then
+        echo `_beautify_directory_name $DEMOSHELLDIR`
+    elif [ "$1" == $SCRIPTS ]; then
+        echo `_beautify_directory_name $SCRIPTSDIR`
+    else
+        echo "Directory can't be found for: $1" >&2
+        exit 1
+    fi
+}
+
+show_ls() {
+    echo "Available components:"
+    echo "====================="
+    for component in "${COMPONENTS[@]}"
+    do
+        echo "$component"
+    done
+    echo ""
+    echo "Available directories (beside components):"
+    echo "====================="
+    echo "$SCRIPTS"
+    echo "$DEMOSHELL"
+}
+
+run_demo() {
+    local boost;
+    boost=`_get_boost_for_demo $SPEED`;
+
+    $SCRIPTSDIR/start.sh $boost -dev -gitjsapi development
+}
+
+run_build() {
+    local component; local gitish; local boost;
+    component=`_get_component $1`; shift;
+    gitish=`_get_jsapi $1`;
+    boost=`_get_boost $SPEED`;
+
+    $SCRIPTSDIR/npm-build-all.sh $boost $component $gitish
+}
+
+run_tests() {
+    set -e
+    local component; local gitish; local boost;
+    component=`_get_component $1`; shift;
+    gitish=`_get_jsapi $1`;
+    boost=`_get_boost $SPEED`;
+
+    $SCRIPTSDIR/npm-build-all.sh $boost $component $gitish
+}
+
+run_browser_tests() {
+    echo 'browser test to be run'
+}
+
+case "$1" in
+    build) shift; run_build "$@"; exit 0;;
+    debug) shift; run_browser_tests "$@"; exit 0;;
+    demo) shift; run_demo "$@"; exit 0;;
+    dir) shift; show_path "$@"; exit 0;;
+    help) show_help; exit 0;;
+    list) show_ls; exit 0;;
+    test) shift; run_tests "$@"; exit 0;;
+    *) echo "invalid command $1" 1>&2; show_help; exit 1;;
+esac

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 _array_contains () {
+    set -e
     local seeking=$1; shift
     local in=1
     for element; do
@@ -13,16 +14,80 @@ _array_contains () {
 }
 
 _is_component() {
+    set -e
     local component=$1
     local components="${COMPONENTS[@]}"
 
     if [ "$component" == "" ] || [ "$component" == "==" ]; then
-        return 1;
+        exit 1;
     fi
 
     if ( _array_contains $component $components == true ); then
-        return 0
+        exit 0;
     else
-        return 1
+        exit 1;
     fi
+}
+
+_get_component() {
+    set -e
+    local component=$1
+    
+    if ( _is_component $component == true ); then
+        echo `_get_component_real_name $1`
+        exit 0;
+    else
+        echo "Component can't be found: $1" >&2
+        exit 1;
+    fi
+}
+
+_get_component_real_name() {
+    set -e
+    local component=$1
+    
+    if [ -d "$COMPONENTSDIR/ng2-alfresco-$component" ]; then
+        echo "ng2-alfresco-$component"
+    elif [ -d "$COMPONENTSDIR/ng2-activiti-$component" ]; then
+        echo "ng2-activiti-$component"
+    else
+        echo "Strange... Component is defined but does not exist in the filesystem. Is there a rupture in the space-time continuum?" >&2
+        exit 1;
+    fi
+}
+
+_get_jsapi() {
+    set -e
+    if [ "$1" != "" ]; then
+        echo "-gitjsapi $1"
+    else
+        echo ""
+    fi
+}
+
+_get_boost() {
+    set -e
+    if [ $1 == 1 ]; then
+        echo "-si"
+    elif [ $1 == 2 ]; then
+        echo "-si -sb"
+    else
+        echo ""
+    fi
+}
+
+_get_boost_for_demo() {
+    set -e
+    if [ $1 == 1 ]; then
+        echo "-si"
+    elif [ $1 == 2 ]; then
+        echo "-si -ss"
+    else
+        echo ""
+    fi
+}
+
+_beautify_directory_name() {
+    set -e
+    echo "$( cd "$1" && pwd )"
 }
