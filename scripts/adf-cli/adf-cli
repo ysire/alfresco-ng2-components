@@ -6,17 +6,45 @@ CLIDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 . $CLIDIR/.cli-helpers
 
 show_help() {
+    local green; local yellow; local white; local bold; local reset;
+    green=`tput setaf 2`
+    yellow=`tput setaf 3`
+    white=`tput setaf 7`
+    bold=`tput bold`
+    reset=`tput sgr0`
+    
+    echo "${green}"
     cat $CLIDIR/.header
-    echo "Usage: adf[f][f] command [command options, like component name or jsapi gitish]"
+    echo "${reset}"
+    
+    echo "${white}${bold}Usage: adf[f][f] command [command options, like component name or jsapi gitish]${reset}"
     echo ""
     echo "Commands:"
-    echo "build      - build package(s)"
-    echo "debug      - run package test in browser to be able to debug"
-    echo "demo       - start demo shell with local components and development gitjsapi"
-    echo "dir        - show absolute path for: <component>|demo|scripts"
-    echo "help       - show this help"
-    echo "list       - show available entries"
-    echo "test       - test package(s)"
+    echo "${yellow}build${reset}      - build package(s)"
+    echo "${yellow}debug ${reset}     - run package test in browser to be able to debug"
+    echo "${yellow}demo${reset}       - start demo shell with local components and development gitjsapi"
+    echo "${yellow}dir${reset}        - show absolute path for: <component>|demo|scripts"
+    echo "${yellow}help${reset}       - show this help"
+    echo "${yellow}list${reset}       - show available entries"
+    echo "${yellow}test${reset}       - test package(s)"
+
+    local output;
+    output=""
+
+    aecho ""
+    echo "${yellow}Command aliases${reset}"
+
+    output="$output${white}${bold}adf$SCRIPTS${reset}|cd to $SCRIPTS directory\n"
+    output="$output${white}${bold}adf$COMPONENTS_DIRNAME${reset}|cd to $COMPONENTS_DIRNAME directory\n"
+    output="$output${white}${bold}adf$DEMOSHELL${reset}|cd to $DEMOSHELL directory\n"
+
+    for component in "${COMPONENTS[@]}"
+    do
+        local componentRealName
+        componentRealName=`_get_component_real_name $component`
+        output="$output${white}${bold}adf$component${reset}|cd to $componentRealName directory\n"
+    done    
+    echo -ne $output | column -t -s "|"    
 }
 
 show_path() {
@@ -36,15 +64,21 @@ show_path() {
 }
 
 show_ls() {
-    echo "Available components:"
-    echo "====================="
+    local yellow; local white; local bold; local reset;
+    yellow=`tput setaf 3`
+    white=`tput setaf 7`
+    bold=`tput bold`    
+    reset=`tput sgr0`
+
+    echo ""
+    echo "${yellow}Components${reset}"
     for component in "${COMPONENTS[@]}"
     do
         echo "$component"
     done
+    
     echo ""
-    echo "Available directories (beside components):"
-    echo "====================="
+    echo "${yellow}Directories${reset}"
     echo "$SCRIPTS"
     echo "$DEMOSHELL"
 }
