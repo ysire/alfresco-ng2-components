@@ -3,6 +3,7 @@ set -f
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 eval RUN_TEST=false
+eval RUN_TESTBROWSER=false
 eval EXEC_FAST_TEST=false
 eval EXEC_CLEAN=false
 eval EXEC_BUILD=true
@@ -53,9 +54,23 @@ enable_test(){
     RUN_TEST=true
 }
 
+enable_testbrowser(){
+    if [[ ! -z $1 ]]; then
+        if [[  $1 != "-"* ]]; then
+            SINGLE_TEST=$1
+        fi
+    fi
+    RUN_TESTBROWSER=true
+}
+
 test_project() {
     echo "====== test project: $1 ====="
     npm run test -- --component $1 || exit 1
+}
+
+debug_project() {
+    echo "====== debug project: $1 ====="
+    npm run test-browser -- --component $1 || exit 1
 }
 
 enable_fast_test() {
@@ -100,6 +115,7 @@ while [[ $1 == -* ]]; do
                         shift;
                        fi
                        ;;
+      -tb|--testbrowser)  enable_testbrowser $2; shift; shift;;                       
       -ft|--fasttest)  enable_fast_test; shift;;
       -gitjsapi)  enable_js_api_git_link $2; shift 2;;
       -vjsapi)  version_js_api $2; shift 2;;
@@ -162,6 +178,17 @@ if $RUN_TEST == true; then
       else
         test_project $PACKAGE
       fi
+    done
+fi
+
+if $RUN_TESTBROWSER == true; then
+    for PACKAGE in ${projects[@]}
+    do
+      DESTDIR="$DIR/../ng2-components/"
+      cd $DESTDIR
+    if [[ $PACKAGE == $SINGLE_TEST ]]; then
+        debug_project $PACKAGE
+    fi
     done
 fi
 

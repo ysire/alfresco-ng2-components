@@ -31,7 +31,7 @@ show_help() {
     local output;
     output=""
 
-    aecho ""
+    echo ""
     echo "${yellow}Command aliases${reset}"
 
     output="$output${white}${bold}adf$SCRIPTS${reset}|cd to $SCRIPTS directory\n"
@@ -110,7 +110,13 @@ run_tests() {
 }
 
 run_browser_tests() {
-    echo 'browser test to be run'
+    set -e
+    local component; local gitish; local boost;
+    component=`_get_component $1`; shift;
+    gitish=`_get_jsapi $1`;
+    boost=`_get_boost $SPEED`;
+
+    $SCRIPTSDIR/npm-build-all.sh $boost -tb $component $gitish
 }
 
 case "$1" in
