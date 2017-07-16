@@ -12,7 +12,7 @@ show_help() {
     echo "Commands:"
     echo "build      - build package(s)"
     echo "debug      - run package test in browser to be able to debug"
-    echo "demo       - start demo shell with local components"
+    echo "demo       - start demo shell with local components and development gitjsapi"
     echo "dir        - show absolute path for: <component>|demo|scripts"
     echo "help       - show this help"
     echo "list       - show available entries"
@@ -72,7 +72,7 @@ run_tests() {
     gitish=`_get_jsapi $1`;
     boost=`_get_boost $SPEED`;
 
-    $SCRIPTSDIR/npm-build-all.sh $boost $component $gitish
+    $SCRIPTSDIR/npm-build-all.sh $boost -t $component $gitish
 }
 
 run_browser_tests() {
