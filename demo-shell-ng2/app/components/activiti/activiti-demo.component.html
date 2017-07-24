@@ -73,6 +73,13 @@
                             (taskCreated)="onTaskCreated($event)"
                             (taskDeleted)="onTaskDeleted($event)">
                         </activiti-task-details>
+                        <adf-task-audit *ngIf="currentTaskId"
+                            [format]="'json'"
+                            [download]="true"
+                            [taskId]="currentTaskId"
+                            [fileName]="activitidetails.taskDetails && activitidetails.taskDetails.name"
+                            (clicked)="onAuditClick($event)">
+                        </adf-task-audit>
                         <hr>
                         <activiti-task-attachments
                             [taskId]="currentTaskId">

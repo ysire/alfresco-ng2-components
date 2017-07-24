@@ -35,7 +35,7 @@ import {
     TaskFiltersComponent,
     TaskListComponent
 } from 'ng2-activiti-tasklist';
-import { AlfrescoApiService } from 'ng2-alfresco-core';
+import { AlfrescoApiService, ContentService } from 'ng2-alfresco-core';
 import {
     DataSorting,
     ObjectDataRow,
@@ -114,6 +114,7 @@ export class ActivitiDemoComponent implements AfterViewInit, OnDestroy, OnInit {
                 private router: Router,
                 private apiService: AlfrescoApiService,
                 private formRenderingService: FormRenderingService,
+                private contentService: ContentService,
                 private formService: FormService) {
         this.dataTasks = new ObjectDataTableAdapter();
         this.dataTasks.setSorting(new DataSorting('created', 'desc'));
@@ -236,6 +237,14 @@ export class ActivitiDemoComponent implements AfterViewInit, OnDestroy, OnInit {
         this.currentProcessInstanceId = currentProcessIdNew;
     }
 
+    audit() {
+        this.apiService.getInstance().activiti.taskApi.getTaskAuditPdf(this.currentTaskId).then( (blob: Blob) => {
+            this.fileShowed = true;
+            this.content = blob;
+            this.contentName = this.activitidetails.taskDetails.name ;
+        });
+    }
+
     navigateStartTask(): void {
         this.resetTaskFilters();
         this.reloadTaskFilters();
@@ -274,6 +283,12 @@ export class ActivitiDemoComponent implements AfterViewInit, OnDestroy, OnInit {
         this.fileShowed = true;
         this.content = content.contentBlob;
         this.contentName = content.name;
+    }
+
+    onAuditClick(event: any): void {
+        this.fileShowed = true;
+        this.content = event.value;
+        this.contentName = event.fileName;
     }
 
     onTaskCreated(data: any): void {
