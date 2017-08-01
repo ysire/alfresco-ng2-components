@@ -73,13 +73,17 @@
                             (taskCreated)="onTaskCreated($event)"
                             (taskDeleted)="onTaskDeleted($event)">
                         </activiti-task-details>
-                        <adf-task-audit *ngIf="currentTaskId"
-                            [format]="'json'"
-                            [download]="true"
-                            [taskId]="currentTaskId"
-                            [fileName]="activitidetails.taskDetails && activitidetails.taskDetails.name"
-                            (clicked)="onAuditClick($event)">
-                        </adf-task-audit>
+                        <hr>
+                        Task Audit log
+                        <button *ngIf="currentTaskId"
+                            adf-task-audit
+                            [task-id]="currentTaskId"
+                            [download]="auditDownload.checked"
+                            md-icon-button (clicked)="onAuditClick($event)" (error)="onAuditError($event)" >
+                            <md-icon>assignment_ind</md-icon>
+                        </button>
+
+                        <md-checkbox #auditDownload>Download</md-checkbox>
                         <hr>
                         <activiti-task-attachments
                             [taskId]="currentTaskId">

@@ -385,19 +385,19 @@ export class TaskListService {
     }
 
     /**
-     * Get the Task Audit information as a pdf
+     * fetch the Task Audit information as a pdf
      * @param taskId - the task id
      */
-    getTaskAuditPdf(taskId: any): Observable<Blob> {
+    fetchTaskAuditPdfById(taskId: any): Observable<Blob> {
         return Observable.fromPromise(this.apiService.getInstance().activiti.taskApi.getTaskAuditPdf(taskId))
             .catch(err => this.handleError(err));
     }
 
     /**
-     * Get the Task Audit information in a json format
+     * fetch the Task Audit information in a json format
      * @param taskId - the task id
      */
-    getTaskAuditJson(taskId: any): Observable<any> {
+    fetchTaskAuditJsonById(taskId: any): Observable<any> {
         return Observable.fromPromise(this.apiService.getInstance().activiti.taskApi.getTaskAuditJson(taskId))
             .catch(err => this.handleError(err));
     }
