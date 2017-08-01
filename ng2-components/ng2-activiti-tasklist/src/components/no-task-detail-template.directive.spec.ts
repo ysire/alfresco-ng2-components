@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-import { TaskDetailsComponent } from './task-details.component';
 import { NoTaskDetailsTemplateDirective } from './no-task-detail-template.directive';
+import { TaskDetailsComponent } from './task-details.component';
 
 describe('NoTaskDetailsTemplateDirective', () => {
 
