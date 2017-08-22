@@ -6,6 +6,7 @@ const helpers = require('./helpers');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 var HappyPack = require('happypack');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const path = require('path');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
@@ -50,8 +51,26 @@ module.exports = webpackMerge(commonConfig, {
                 include: [helpers.root('app'), helpers.root('../ng2-components')],
                 use: ['happypack/loader?id=ts', 'angular2-template-loader'],
                 exclude: [/node_modules/, /public/, /resources/, /dist/]
+            },
+            {
+                test: /\.scss$/,
+                use: [{
+                    loader: "to-string-loader"
+                }, {
+                    loader: "raw-loader"
+                }, {
+                    loader: "sass-loader",
+                    options: {
+                        includePaths: [path.resolve(__dirname, helpers.root('node_modules') + '/ng2-alfresco-core/styles')]
+                    }
+                }]
             }
         ]
+    },
+
+    stats: {
+        errors: true,
+        errorDetails: true
     },
 
     plugins: [
@@ -105,6 +124,13 @@ module.exports = webpackMerge(commonConfig, {
             htmlLoader: {
                 minimize: false // workaround for ng2
             }
-        })
+        }),
+        new CopyWebpackPlugin([
+            {
+                context: `node_modules/ng2-alfresco-core/prebuilt-themes/`,
+                from: '**/*.css',
+                to: 'prebuilt-themes'
+            }
+        ])
     ]
 });
