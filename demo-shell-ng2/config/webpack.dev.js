@@ -55,7 +55,7 @@ module.exports = webpackMerge(commonConfig, {
                 }, {
                     loader: "sass-loader",
                     options: {
-                        includePaths: [path.resolve(__dirname, '../../ng2-components/ng2-alfresco-core/styles')]
+                        includePaths: [path.resolve(__dirname, '../../theming/dist')]
                     }
                 }]
             },
@@ -64,6 +64,7 @@ module.exports = webpackMerge(commonConfig, {
 
     resolve: {
         alias: {
+            "ng2-alfresco-theming": path.resolve(__dirname, '../../theming/dist'),
             "ng2-alfresco-core$": path.resolve(__dirname, '../../ng2-components/ng2-alfresco-core/index.ts'),
             "ng2-alfresco-datatable$": path.resolve(__dirname, '../../ng2-components/ng2-alfresco-datatable/index.ts'),
             "ng2-activiti-form/stencils/runtime.ng1$": path.resolve(__dirname, '../../ng2-components/ng2-activiti-form/stencils/runtime.ng1'),
@@ -83,7 +84,7 @@ module.exports = webpackMerge(commonConfig, {
             "ng2-alfresco-webscript$": path.resolve(__dirname, '../../ng2-components/ng2-alfresco-webscript/index.ts'),
             "ng2-alfresco-userinfo$": path.resolve(__dirname, '../../ng2-components/ng2-alfresco-userinfo/index.ts')
         },
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.js', '.scss'],
         modules: [path.resolve(__dirname, '../node_modules')]
     },
 
