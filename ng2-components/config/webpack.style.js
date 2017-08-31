@@ -29,7 +29,9 @@ module.exports = {
             }, {
                 loader: "sass-loader",
                 options: {
-                    includePaths: [path.resolve(__dirname, '../../ng2-components/ng2-alfresco-core/styles')]
+                    includePaths: [path.resolve(__dirname, '../../ng2-components/ng2-alfresco-core/styles'),
+                        path.resolve(__dirname, '../../ng2-components/ng2-alfresco-documentlist/styles'),
+                    ]
                 }
             }])
         }]

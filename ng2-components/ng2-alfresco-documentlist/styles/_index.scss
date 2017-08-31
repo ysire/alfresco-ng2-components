@@ -1,0 +1,12 @@
+@import '../../ng2-alfresco-documentlist/src/components/breadcrumb/breadcrumb.component';
+@import '../../ng2-alfresco-documentlist/src/components/breadcrumb/dropdown-breadcrumb.component';
+@import '../../ng2-alfresco-documentlist/src/components/content-node-selector/content-node-selector.component';
+
+@import '../../ng2-alfresco-core/styles/theme-colors';
+
+
+@mixin alfresco-material-documentlist($theme) {
+    @include mat-breadcrumb-theme($theme);
+    @include mat-breadcrumb-dropdown-theme($theme);
+    @include mat-content-node-selector-theme($theme);
+}
