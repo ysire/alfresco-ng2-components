@@ -15,9 +15,7 @@
  * limitations under the License.
  */
 
-import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, Input, OnInit, ViewChild } from '@angular/core';
-import { DocumentListComponent } from 'ng2-alfresco-documentlist';
-import { TagListComponent } from 'ng2-alfresco-tag';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'potato-component-list',
@@ -27,15 +25,12 @@ import { TagListComponent } from 'ng2-alfresco-tag';
 })
 export class PotatoComponentsListComponent implements OnInit {
 
-    @Input()
-    container: any;
-
-    componentRef: ComponentRef<any>;
+    @Output()
+    create: EventEmitter<string> = new EventEmitter<string>();
 
     components: any[];
 
-    constructor(private resolver: ComponentFactoryResolver) {
-    }
+    constructor() {}
 
     ngOnInit() {
         this.components = [
@@ -47,14 +42,6 @@ export class PotatoComponentsListComponent implements OnInit {
     }
 
     createComponent(name) {
-        if (name === 'TagListComponent') {
-            const tagListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(TagListComponent);
-            this.componentRef = this.container.createComponent(tagListComponent);
-        }
-
-        if (name === 'DocumentListComponent') {
-            const documentListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(DocumentListComponent);
-            this.componentRef = this.container.createComponent(documentListComponent);
-        }
+        this.create.emit(name);
     }
 }

@@ -1,2 +1,6 @@
-<codemirror [(ngModel)]="code" [config]="config" class="potato-inspector-editor">
+<codemirror 
+    [(ngModel)]="code" 
+    [config]="config" 
+    class="potato-inspector-editor"
+    (blur)="onBlur()">
 </codemirror>

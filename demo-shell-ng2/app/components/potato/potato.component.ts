@@ -15,7 +15,9 @@
  * limitations under the License.
  */
 
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { DocumentListComponent } from 'ng2-alfresco-documentlist';
+import { TagListComponent } from 'ng2-alfresco-tag';
 
 @Component({
     selector: 'project-potato',
@@ -26,10 +28,32 @@ export class PotatoComponent implements OnInit {
 
     @ViewChild('componentsContainer', { read: ViewContainerRef }) container;
 
-    constructor() {
+    componentRef: ComponentRef<any>;
+
+    componentName: string = '';
+
+    constructor(private resolver: ComponentFactoryResolver) {}
+
+    codeChanged(config) {
+        console.log(config);
+    }
+
+    onComponentCreation(name) {
+        this.componentName = name;
+
+        if (name === 'TagListComponent') {
+            const tagListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(TagListComponent);
+            this.componentRef = this.container.createComponent(tagListComponent);
+        }
+
+        if (name === 'DocumentListComponent') {
+            const documentListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(DocumentListComponent);
+            this.componentRef = this.container.createComponent(documentListComponent);
+            this.componentRef.instance.config = {};
+        }
     }
 
     ngOnInit() {
-    console.log(this.container);
+        console.log(this.container);
     }
 }

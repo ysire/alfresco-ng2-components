@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'project-potato-inspector',
@@ -23,12 +23,15 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
     styleUrls: ['./potato-inspector.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class PotatoInspectorComponent implements OnInit {
-    config = {
-        lineNumbers: true,
-        mode: 'text/javascript'
-    };
+export class PotatoInspectorComponent implements OnChanges {
 
+    @Output()
+    changed: EventEmitter<Array<any>> = new EventEmitter<Array<any>>();
+
+    @Input()
+    actualComponent: string;
+
+    @Input()
     code: string = `[
     {
         "key": "$thumbnail",
@@ -71,6 +74,19 @@ export class PotatoInspectorComponent implements OnInit {
     }
 ]`;
 
-    ngOnInit() {
+    config = {
+        lineNumbers: true,
+        mode: {
+            name: 'javascript',
+            json: true
+        },
+        theme: 'solarized dark'
+    };
+
+    onBlur() {
+        this.changed.emit(JSON.parse(this.code));
+    }
+
+    ngOnChanges() {
     }
 }

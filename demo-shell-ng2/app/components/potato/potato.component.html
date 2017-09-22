@@ -1,6 +1,6 @@
 <div fxLayout='row' fxLayoutAlign="start stretch" class="potato-container">
     <div fxFlex="10">
-        <potato-component-list [container]="container" ></potato-component-list>
+        <potato-component-list (create)="onComponentCreation($event)"></potato-component-list>
     </div>
     <div fxFlex="60">
         <md-card>
@@ -14,7 +14,10 @@
     <div fxFlex="30">
         <md-card class="potato-component-properties">
             <md-card-content>
-                <project-potato-inspector></project-potato-inspector>
+                <project-potato-inspector
+                [actualComponent]="componentName"
+                (changed)="codeChanged($event)">
+            </project-potato-inspector>
             </md-card-content>
         </md-card>
     </div>
