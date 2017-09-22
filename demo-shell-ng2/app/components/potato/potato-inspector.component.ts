@@ -32,6 +32,9 @@ export class PotatoInspectorComponent implements OnChanges {
     actualComponent: string;
 
     @Input()
+    titleToolbar: string;
+
+    @Input()
     code: string = `[
     {
         "key": "$thumbnail",
@@ -90,8 +93,12 @@ export class PotatoInspectorComponent implements OnChanges {
         });
     }
 
+    onToolbarComponentChange() {
+        this.emitChange('ToolbarComponent', {title: this.titleToolbar});
+    }
+
     emitChange(component, properties) {
-        this.changed.emit(Object.assign({}, { component }, properties));
+        this.changed.emit(Object.assign({}, {component}, properties));
     }
 
     ngOnChanges() {

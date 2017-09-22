@@ -47,6 +47,7 @@ import { ThemePickerModule } from './components/theme-picker/theme-picker';
 import { MaterialModule } from './material.module';
 import { DebugAppConfigService } from './services/debug-app-config.service';
 
+import { AppsListComponent } from 'ng2-activiti-tasklist';
 import { DocumentListComponent } from 'ng2-alfresco-documentlist';
 import { TagListComponent } from 'ng2-alfresco-tag';
 import { CustomSourcesComponent } from './components/files/custom-sources.component';
@@ -77,7 +78,7 @@ import {
 } from './components/index';
 
 @NgModule({
-    entryComponents: [ TagListComponent, DocumentListComponent, ToolbarComponent ],
+    entryComponents: [ TagListComponent, DocumentListComponent, ToolbarComponent, AppsListComponent ],
     imports: [
         BrowserModule,
         routing,

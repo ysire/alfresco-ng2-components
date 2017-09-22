@@ -1,4 +1,4 @@
-<div class="potato-inspector-editor"> 
+<div class="potato-inspector-editor">
     <div *ngIf="actualComponent === 'DocumentListComponent'">
         <codemirror 
             [(ngModel)]="code" 
@@ -10,5 +10,13 @@
                 {{ source }}
             </md-option>
         </md-select>    
+    </div>
+    <div *ngIf="actualComponent === 'TagListComponent'">
+        TAG LIST COMPONENT PROPERTIES
+    </div>
+    <div *ngIf="actualComponent === 'ToolbarComponent'">
+        <md-form-field class="example-full-width">
+            <input mdInput placeholder="Title Toolbar" [(ngModel)]="titleToolbar" (blur)="onToolbarComponentChange()">
+        </md-form-field>
     </div>
 </div>

@@ -36,7 +36,8 @@ export class PotatoComponentsListComponent implements OnInit {
         this.components = [
             {name: 'Tag List', type: 'TagListComponent'},
             {name: 'Document List', type: 'DocumentListComponent'},
-            {name: 'Toolbar Component', type: 'ToolbarComponent'}
+            {name: 'Toolbar', type: 'ToolbarComponent'},
+            {name: 'AppsList', type: 'AppsListComponent'}
         ];
     }
 

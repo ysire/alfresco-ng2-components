@@ -16,6 +16,7 @@
  */
 
 import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { AppsListComponent } from 'ng2-activiti-tasklist';
 import { AppConfigService, ToolbarComponent } from 'ng2-alfresco-core';
 import { DocumentListComponent } from 'ng2-alfresco-documentlist';
 import { TagListComponent } from 'ng2-alfresco-tag';
@@ -41,6 +42,11 @@ export class PotatoComponent implements OnInit {
             this.appConfig.config['document-list'].presets.default = obj.config;
             this.createDocumentList('DocumentListComponent', obj.source);
         }
+
+        if (obj.component === 'ToolbarComponent') {
+            this.createToolbar('ToolbarComponent', obj.title);
+        }
+
     }
 
     onComponentCreation(name) {
@@ -60,11 +66,24 @@ export class PotatoComponent implements OnInit {
         }
 
         if (name === 'ToolbarComponent') {
-            if (this.componentRefs[name]) {
-                this.componentRefs[name].destroy();
-            }
-            const toolbarComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(ToolbarComponent);
-            this.componentRefs[name] = this.container.createComponent(toolbarComponent);
+            this.createToolbar(name, '');
+        }
+
+        if (name === 'AppsListComponent') {
+            const appsListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(AppsListComponent);
+            this.componentRefs[name] = this.container.createComponent(appsListComponent);
+        }
+    }
+
+    createToolbar(name, titleToolbar) {
+        if (this.componentRefs[name]) {
+            this.componentRefs[name].destroy();
+        }
+        const toolbarComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(ToolbarComponent);
+        this.componentRefs[name] = this.container .createComponent(toolbarComponent);
+
+        if (titleToolbar) {
+            this.componentRefs[name].instance.title = titleToolbar;
         }
     }
 
