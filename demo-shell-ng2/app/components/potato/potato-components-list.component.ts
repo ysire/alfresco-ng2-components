@@ -15,7 +15,9 @@
  * limitations under the License.
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, Input, OnInit, ViewChild } from '@angular/core';
+import { DocumentListComponent } from 'ng2-alfresco-documentlist';
+import { TagListComponent } from 'ng2-alfresco-tag';
 
 @Component({
     selector: 'potato-component-list',
@@ -24,14 +26,35 @@ import { Component, OnInit } from '@angular/core';
 
 })
 export class PotatoComponentsListComponent implements OnInit {
-    components: string[];
+
+    @Input()
+    container: any;
+
+    componentRef: ComponentRef<any>;
+
+    components: any[];
+
+    constructor(private resolver: ComponentFactoryResolver) {
+    }
 
     ngOnInit() {
         this.components = [
-            'Potato 1',
-            'Potato 2',
-            'Potato 3',
-            'Potato 4'
+            {name: 'Tag List', type: 'TagListComponent'},
+            {name: 'Document List', type: 'DocumentListComponent'},
+            {name: 'Potato 3', type: 'TagListComponent'},
+            {name: 'Potato 4', type: 'TagListComponent'}
         ];
+    }
+
+    createComponent(name) {
+        if (name === 'TagListComponent') {
+            const tagListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(TagListComponent);
+            this.componentRef = this.container.createComponent(tagListComponent);
+        }
+
+        if (name === 'DocumentListComponent') {
+            const documentListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(DocumentListComponent);
+            this.componentRef = this.container.createComponent(documentListComponent);
+        }
     }
 }

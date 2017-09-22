@@ -1,11 +1,14 @@
 <div fxLayout='row' fxLayoutAlign="start stretch" class="potato-container">
     <div fxFlex="10">
-        <potato-component-list></potato-component-list>
+        <potato-component-list [container]="container" ></potato-component-list>
     </div>
     <div fxFlex="70">
         <md-card>
             <md-card-title>Preview</md-card-title>
             <md-card-content>
+                <div #componentsContainer>
+
+                </div>
             </md-card-content>
         </md-card>
     </div>

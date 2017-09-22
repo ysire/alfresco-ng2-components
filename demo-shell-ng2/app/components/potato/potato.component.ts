@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 
 @Component({
     selector: 'project-potato',
@@ -24,7 +24,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PotatoComponent implements OnInit {
 
-    ngOnInit() {
+    @ViewChild('componentsContainer', { read: ViewContainerRef }) container;
 
+    constructor() {
     }
+
+    ngOnInit() {
+    console.log(this.container);
+    }
+
 }
