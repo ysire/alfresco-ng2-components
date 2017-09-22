@@ -18,13 +18,20 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'project-potato',
-    templateUrl: './potato.component.html',
-    styleUrls: ['./potato.component.scss']
+    selector: 'potato-component-list',
+    templateUrl: './potato-components-list.component.html',
+    styleUrls: ['./potato-components-list.component.scss']
+
 })
-export class PotatoComponent implements OnInit {
+export class PotatoComponentsListComponent implements OnInit {
+    components: string[];
 
     ngOnInit() {
-
+        this.components = [
+            'Potato 1',
+            'Potato 2',
+            'Potato 3',
+            'Potato 4'
+        ];
     }
 }

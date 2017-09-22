@@ -1,24 +1,13 @@
 <div fxLayout='row' fxLayoutAlign="start stretch" class="potato-container">
     <div fxFlex="10">
-        <md-card class="potato-component-list">
-            <md-card-content>
-                <md-nav-list>
-                    <md-list-item *ngFor="let component of components">
-                        <button md-icon-button>
-                            <md-icon>view_module</md-icon>
-                        </button>
-                        <a mdLine href="#">{{ component }}</a>
-                    </md-list-item>
-                </md-nav-list>                        
-            </md-card-content>
-        </md-card>
+        <potato-component-list></potato-component-list>
     </div>
     <div fxFlex="70">
         <md-card>
             <md-card-title>Preview</md-card-title>
             <md-card-content>
             </md-card-content>
-        </md-card>        
+        </md-card>
     </div>
     <div fxFlex="20">
         <md-card>
@@ -26,6 +15,6 @@
             <md-card-content>
                 <project-potato-inspector></project-potato-inspector>
             </md-card-content>
-        </md-card>                        
+        </md-card>
     </div>
 </div>
