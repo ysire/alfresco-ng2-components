@@ -16,7 +16,7 @@
  */
 
 import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { AppConfigService } from 'ng2-alfresco-core';
+import { AppConfigService, ToolbarComponent } from 'ng2-alfresco-core';
 import { DocumentListComponent } from 'ng2-alfresco-documentlist';
 import { TagListComponent } from 'ng2-alfresco-tag';
 
@@ -55,6 +55,11 @@ export class PotatoComponent implements OnInit {
 
         if (name === 'DocumentListComponent') {
             this.createDocumentList(name);
+        }
+
+        if (name === 'ToolbarComponent') {
+            const toolbarComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(ToolbarComponent);
+            this.componentRef = this.container.createComponent(toolbarComponent);
         }
     }
 

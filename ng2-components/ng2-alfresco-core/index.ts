@@ -105,6 +105,7 @@ export { SearchApiService } from './src/services/search-api.service';
 export { SharedLinksApiService } from './src/services/shared-links-api.service';
 export { SitesApiService } from './src/services/sites-api.service';
 export { DiscoveryApiService } from './src/services/discovery-api.service';
+export { ToolbarComponent } from './src/components/toolbar/toolbar.component';
 
 import { DataColumnListComponent } from './src/components/data-column/data-column-list.component';
 import { DataColumnComponent } from './src/components/data-column/data-column.component';

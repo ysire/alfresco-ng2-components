@@ -23,7 +23,7 @@ import { DiagramsModule } from 'ng2-activiti-diagrams';
 import { ActivitiFormModule } from 'ng2-activiti-form';
 import { ActivitiProcessListModule } from 'ng2-activiti-processlist';
 import { ActivitiTaskListModule } from 'ng2-activiti-tasklist';
-import { AppConfigService, CoreModule, TRANSLATION_PROVIDER } from 'ng2-alfresco-core';
+import { AppConfigService, CoreModule, ToolbarComponent, TRANSLATION_PROVIDER } from 'ng2-alfresco-core';
 import { DataTableModule } from 'ng2-alfresco-datatable';
 import { DocumentListModule } from 'ng2-alfresco-documentlist';
 import { LoginModule } from 'ng2-alfresco-login';
@@ -77,7 +77,7 @@ import {
 } from './components/index';
 
 @NgModule({
-    entryComponents: [ TagListComponent, DocumentListComponent ],
+    entryComponents: [ TagListComponent, DocumentListComponent, ToolbarComponent ],
     imports: [
         BrowserModule,
         routing,
