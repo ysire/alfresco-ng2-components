@@ -39,7 +39,7 @@ export class PotatoComponent implements OnInit {
     propertyChange(obj) {
         if (obj.component === 'DocumentListComponent') {
             this.appConfig.config['document-list'].presets.default = obj.config;
-            this.createDocumentList('DocumentListComponent');
+            this.createDocumentList('DocumentListComponent', obj.source);
         }
     }
 
@@ -68,17 +68,17 @@ export class PotatoComponent implements OnInit {
         }
     }
 
-    createDocumentList(name) {
+    createDocumentList(name, source = '-root-') {
         if (this.componentRefs[name]) {
             this.componentRefs[name].destroy();
         }
 
         const documentListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(DocumentListComponent);
         this.componentRefs[name] = this.container.createComponent(documentListComponent);
-        this.componentRefs[name].instance.currentFolderId = '-my-';
+        this.componentRefs[name].instance.currentFolderId = source;
 
         this.componentRefs[name].instance.ngOnInit();
-        this.componentRefs[name].instance.ngOnChanges({ currentFolderId: { currentValue: '-my-' } });
+        this.componentRefs[name].instance.ngOnChanges({ currentFolderId: { currentValue: source } });
     }
 
     ngOnInit() {

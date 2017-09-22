@@ -72,6 +72,8 @@ export class PotatoInspectorComponent implements OnChanges {
         '-shared-'
     ];
 
+    selectedSource: string = '-root-';
+
     config = {
         lineNumbers: true,
         mode: {
@@ -81,8 +83,11 @@ export class PotatoInspectorComponent implements OnChanges {
         theme: 'solarized dark'
     };
 
-    onBlur() {
-        this.emitChange('DocumentListComponent', { config: JSON.parse(this.code) });
+    onDocumentListPopertyChange() {
+        this.emitChange('DocumentListComponent', {
+            config: JSON.parse(this.code),
+            source: this.selectedSource
+        });
     }
 
     emitChange(component, properties) {

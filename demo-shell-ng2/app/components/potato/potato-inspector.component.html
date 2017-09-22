@@ -3,9 +3,9 @@
         <codemirror 
             [(ngModel)]="code" 
             [config]="config" 
-            (blur)="onBlur()">
+            (blur)="onDocumentListPopertyChange($event)">
         </codemirror>
-        <md-select placeholder="Item source" class="source-chooser">
+        <md-select placeholder="Item source" class="source-chooser" [(ngModel)]="selectedSource" (change)="onDocumentListPopertyChange($event)">
             <md-option *ngFor="let source of sources" [value]="source">
                 {{ source }}
             </md-option>
