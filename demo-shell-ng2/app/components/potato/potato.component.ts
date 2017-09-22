@@ -28,7 +28,7 @@ export class PotatoComponent implements OnInit {
 
     @ViewChild('componentsContainer', { read: ViewContainerRef }) container;
 
-    componentRef: ComponentRef<any>;
+    componentRef: ComponentRef<any> = null;
 
     componentName: string = '';
 
@@ -40,6 +40,10 @@ export class PotatoComponent implements OnInit {
 
     onComponentCreation(name) {
         this.componentName = name;
+
+        // if (this.componentRef) {
+        //     this.componentRef.destroy();
+        // }
 
         if (name === 'TagListComponent') {
             const tagListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(TagListComponent);
