@@ -29,7 +29,7 @@ export class PotatoComponent implements OnInit {
 
     @ViewChild('componentsContainer', {read: ViewContainerRef}) container;
 
-    componentRef: ComponentRef<any> = null;
+    componentRefs = {};
 
     componentName: string = '';
 
@@ -38,29 +38,37 @@ export class PotatoComponent implements OnInit {
 
     codeChanged(config) {
         this.appConfig.config['document-list'].presets.default = config;
-        console.log(config);
+        this.createDocumentList('DocumentListComponent');
     }
 
     onComponentCreation(name) {
         this.componentName = name;
 
-        // if (this.componentRef) {
-        //     this.componentRef.destroy();
-        // }
-
         if (name === 'TagListComponent') {
+            if (this.componentRefs[name]) {
+                this.componentRefs[name].destroy();
+            }
+
             const tagListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(TagListComponent);
-            this.componentRef = this.container.createComponent(tagListComponent);
+            this.componentRefs[name] = this.container.createComponent(tagListComponent);
         }
 
         if (name === 'DocumentListComponent') {
-            const documentListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(DocumentListComponent);
-            this.componentRef = this.container.createComponent(documentListComponent);
-            this.componentRef.instance.currentFolderId = '-my-';
-
-            this.componentRef.instance.ngOnInit();
-            this.componentRef.instance.ngOnChanges({ currentFolderId: { currentValue: '-my-' } });
+            this.createDocumentList(name);
         }
+    }
+
+    createDocumentList(name) {
+        if (this.componentRefs[name]) {
+            this.componentRefs[name].destroy();
+        }
+
+        const documentListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(DocumentListComponent);
+        this.componentRefs[name] = this.container.createComponent(documentListComponent);
+        this.componentRefs[name].instance.currentFolderId = '-my-';
+
+        this.componentRefs[name].instance.ngOnInit();
+        this.componentRefs[name].instance.ngOnChanges({ currentFolderId: { currentValue: '-my-' } });
     }
 
     ngOnInit() {
