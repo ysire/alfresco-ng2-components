@@ -34,6 +34,7 @@ import { UploadModule } from 'ng2-alfresco-upload';
 import { UserInfoModule } from 'ng2-alfresco-userinfo';
 import { ViewerModule } from 'ng2-alfresco-viewer';
 import { WebScriptModule } from 'ng2-alfresco-webscript';
+import { CodemirrorModule } from 'ng2-codemirror';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Editor3DModule } from 'ng2-3d-editor';
@@ -99,6 +100,7 @@ import {
         DiagramsModule,
         CustomEditorsModule,
         Editor3DModule,
+        CodemirrorModule,
         ChartsModule,
         ThemePickerModule,
         FlexLayoutModule

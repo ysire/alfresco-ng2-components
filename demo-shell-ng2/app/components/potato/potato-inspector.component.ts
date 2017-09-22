@@ -23,7 +23,53 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./potato-inspector.component.scss']
 })
 export class PotatoInspectorComponent implements OnInit {
-    components: string[];
+    config = {
+        lineNumbers: true,
+        mode: 'text/javascript'
+    };
+
+    code: string = `
+[
+    {
+        "key": "$thumbnail",
+        "type": "image",
+        "srTitle": "ADF-DOCUMENT-LIST.LAYOUT.THUMBNAIL",
+        "sortable": false
+    },
+    {
+        "key": "name",
+        "type": "text",
+        "title": "ADF-DOCUMENT-LIST.LAYOUT.NAME",
+        "cssClass": "full-width ellipsis-cell",
+        "sortable": true
+    },
+    {
+        "key": "path",
+        "type": "location",
+        "title": "ADF-DOCUMENT-LIST.LAYOUT.LOCATION",
+        "format": "/files",
+        "sortable": true
+    },
+    {
+        "key": "content.sizeInBytes",
+        "type": "fileSize",
+        "title": "ADF-DOCUMENT-LIST.LAYOUT.SIZE",
+        "sortable": true
+    },
+    {
+        "key": "modifiedAt",
+        "type": "date",
+        "title": "ADF-DOCUMENT-LIST.LAYOUT.MODIFIED_ON",
+        "format": "timeAgo",
+        "sortable": true
+    },
+    {
+        "key": "modifiedByUser.displayName",
+        "type": "text",
+        "title": "ADF-DOCUMENT-LIST.LAYOUT.MODIFIED_BY",
+        "sortable": true
+    }
+]`;
 
     ngOnInit() {
     }
