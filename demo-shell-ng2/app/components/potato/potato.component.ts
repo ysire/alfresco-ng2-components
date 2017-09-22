@@ -15,11 +15,22 @@
  * limitations under the License.
  */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'project-potato',
     templateUrl: './potato.component.html',
     styleUrls: ['./potato.component.scss']
 })
-export class PotatoComponent {}
+export class PotatoComponent implements OnInit {
+    components: string[];
+
+    ngOnInit() {
+        this.components = [
+            'Potato 1',
+            'Potato 2',
+            'Potato 3',
+            'Potato 4'
+        ];
+    }
+}
