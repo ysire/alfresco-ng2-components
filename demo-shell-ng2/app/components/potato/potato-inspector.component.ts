@@ -15,12 +15,13 @@
  * limitations under the License.
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'project-potato-inspector',
     templateUrl: './potato-inspector.component.html',
-    styleUrls: ['./potato-inspector.component.scss']
+    styleUrls: ['./potato-inspector.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class PotatoInspectorComponent implements OnInit {
     config = {
@@ -28,8 +29,7 @@ export class PotatoInspectorComponent implements OnInit {
         mode: 'text/javascript'
     };
 
-    code: string = `
-[
+    code: string = `[
     {
         "key": "$thumbnail",
         "type": "image",
