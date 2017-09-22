@@ -16,6 +16,7 @@
  */
 
 import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { AppConfigService } from 'ng2-alfresco-core';
 import { DocumentListComponent } from 'ng2-alfresco-documentlist';
 import { TagListComponent } from 'ng2-alfresco-tag';
 
@@ -26,15 +27,17 @@ import { TagListComponent } from 'ng2-alfresco-tag';
 })
 export class PotatoComponent implements OnInit {
 
-    @ViewChild('componentsContainer', { read: ViewContainerRef }) container;
+    @ViewChild('componentsContainer', {read: ViewContainerRef}) container;
 
     componentRef: ComponentRef<any> = null;
 
     componentName: string = '';
 
-    constructor(private resolver: ComponentFactoryResolver) {}
+    constructor(private resolver: ComponentFactoryResolver, private appConfig: AppConfigService) {
+    }
 
     codeChanged(config) {
+        this.appConfig.config['document-list'].presets.default = config;
         console.log(config);
     }
 
