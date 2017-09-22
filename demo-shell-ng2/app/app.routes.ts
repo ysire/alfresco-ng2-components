@@ -31,6 +31,7 @@ import {
     FormViewerComponent,
     HomeComponent,
     LoginDemoComponent,
+    PotatoComponent,
     SearchComponent,
     SettingsComponent,
     SocialComponent,
@@ -52,6 +53,11 @@ export const appRoutes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'potato',
+        component: PotatoComponent,
         canActivate: [AuthGuard]
     },
     {
