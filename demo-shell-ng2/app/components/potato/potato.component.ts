@@ -49,7 +49,10 @@ export class PotatoComponent implements OnInit {
         if (name === 'DocumentListComponent') {
             const documentListComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(DocumentListComponent);
             this.componentRef = this.container.createComponent(documentListComponent);
-            this.componentRef.instance.config = {};
+            this.componentRef.instance.currentFolderId = '-my-';
+
+            this.componentRef.instance.ngOnInit();
+            this.componentRef.instance.ngOnChanges({ currentFolderId: { currentValue: '-my-' } });
         }
     }
 

@@ -47,13 +47,6 @@ export class PotatoInspectorComponent implements OnChanges {
         "sortable": true
     },
     {
-        "key": "path",
-        "type": "location",
-        "title": "ADF-DOCUMENT-LIST.LAYOUT.LOCATION",
-        "format": "/files",
-        "sortable": true
-    },
-    {
         "key": "content.sizeInBytes",
         "type": "fileSize",
         "title": "ADF-DOCUMENT-LIST.LAYOUT.SIZE",
@@ -83,10 +76,18 @@ export class PotatoInspectorComponent implements OnChanges {
         theme: 'solarized dark'
     };
 
+    showCode: boolean = false;
+
     onBlur() {
         this.changed.emit(JSON.parse(this.code));
     }
 
     ngOnChanges() {
+        if (this.actualComponent === 'TagListComponent') {
+        }
+
+        if (this.actualComponent === 'DocumentListComponent') {
+            this.showCode = true;
+        }
     }
 }
