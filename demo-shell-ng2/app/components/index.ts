@@ -35,3 +35,4 @@ export { ActivitiAppsViewComponent } from './activiti/apps.view';
 export { SettingsComponent } from './settings/settings.component';
 export { FormDemoComponent } from './form/form-demo.component';
 export { PotatoComponent } from './potato/potato.component';
+export { PotatoInspectorComponent } from './potato/potato-inspector.component';
