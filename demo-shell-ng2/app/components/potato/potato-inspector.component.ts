@@ -26,7 +26,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, ViewEncapsulation } 
 export class PotatoInspectorComponent implements OnChanges {
 
     @Output()
-    changed: EventEmitter<Array<any>> = new EventEmitter<Array<any>>();
+    changed: EventEmitter<object> = new EventEmitter<object>();
 
     @Input()
     actualComponent: string;
@@ -66,6 +66,11 @@ export class PotatoInspectorComponent implements OnChanges {
         "sortable": true
     }
 ]`;
+    sources = [
+        '-my-',
+        '-root-',
+        '-shared-'
+    ];
 
     config = {
         lineNumbers: true,
@@ -76,18 +81,14 @@ export class PotatoInspectorComponent implements OnChanges {
         theme: 'solarized dark'
     };
 
-    showCode: boolean = false;
-
     onBlur() {
-        this.changed.emit(JSON.parse(this.code));
+        this.emitChange('DocumentListComponent', { config: JSON.parse(this.code) });
+    }
+
+    emitChange(component, properties) {
+        this.changed.emit(Object.assign({}, { component }, properties));
     }
 
     ngOnChanges() {
-        if (this.actualComponent === 'TagListComponent') {
-        }
-
-        if (this.actualComponent === 'DocumentListComponent') {
-            this.showCode = true;
-        }
     }
 }

@@ -36,9 +36,11 @@ export class PotatoComponent implements OnInit {
     constructor(private resolver: ComponentFactoryResolver, private appConfig: AppConfigService) {
     }
 
-    codeChanged(config) {
-        this.appConfig.config['document-list'].presets.default = config;
-        this.createDocumentList('DocumentListComponent');
+    propertyChange(obj) {
+        if (obj.component === 'DocumentListComponent') {
+            this.appConfig.config['document-list'].presets.default = obj.config;
+            this.createDocumentList('DocumentListComponent');
+        }
     }
 
     onComponentCreation(name) {
@@ -58,8 +60,11 @@ export class PotatoComponent implements OnInit {
         }
 
         if (name === 'ToolbarComponent') {
+            if (this.componentRefs[name]) {
+                this.componentRefs[name].destroy();
+            }
             const toolbarComponent: ComponentFactory<any> = this.resolver.resolveComponentFactory(ToolbarComponent);
-            this.componentRef = this.container.createComponent(toolbarComponent);
+            this.componentRefs[name] = this.container.createComponent(toolbarComponent);
         }
     }
 

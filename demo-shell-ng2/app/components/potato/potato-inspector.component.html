@@ -1,7 +1,14 @@
-<codemirror 
-    *ngIf="showCode"
-    [(ngModel)]="code" 
-    [config]="config" 
-    class="potato-inspector-editor"
-    (blur)="onBlur()">
-</codemirror>
+<div class="potato-inspector-editor"> 
+    <div *ngIf="actualComponent === 'DocumentListComponent'">
+        <codemirror 
+            [(ngModel)]="code" 
+            [config]="config" 
+            (blur)="onBlur()">
+        </codemirror>
+        <md-select placeholder="Item source" class="source-chooser">
+            <md-option *ngFor="let source of sources" [value]="source">
+                {{ source }}
+            </md-option>
+        </md-select>    
+    </div>
+</div>
