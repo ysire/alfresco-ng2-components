@@ -9,6 +9,7 @@
 @import '../../../ng2-alfresco-login/styles/index';
 @import '../../../ng2-alfresco-upload/styles/index';
 @import '../../../ng2-alfresco-userinfo/styles/index';
+@import '../../../ng2-alfresco-viewer/styles/index';
 @import '../../../ng2-alfresco-search/styles/index';
 
 @mixin alfresco-material-theme($theme) {
@@ -22,6 +23,7 @@
     @include alfresco-documentlist-theme($theme);
     @include alfresco-login-theme($theme);
     @include alfresco-upload-theme($theme);
+    @include alfresco-viewer-theme($theme);
     @include alfresco-userinfo-theme($theme);
     @include alfresco-search-theme($theme);
 }

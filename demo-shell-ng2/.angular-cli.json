@@ -323,8 +323,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app-dev",
       "styles": [
-        "styles.scss",
-        "custom-style.scss"
+        "styles.scss"
       ],
       "stylePreprocessorOptions": {
       "includePaths": [

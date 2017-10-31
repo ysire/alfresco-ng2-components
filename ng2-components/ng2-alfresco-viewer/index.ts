@@ -30,6 +30,7 @@ import { ViewerSidebarComponent } from './src/components/viewer-sidebar.componen
 import { ViewerToolbarComponent } from './src/components/viewer-toolbar.component';
 import { ViewerComponent } from './src/components/viewer.component';
 import { ViewerExtensionDirective } from './src/directives/viewer-extension.directive';
+import { ViewerDefaultSidebarComponent } from './src/components/viewer-default-sidebar.component';
 import { RenderingQueueServices } from './src/services/rendering-queue.services';
 
 export { ViewerComponent } from './src/components/viewer.component';
@@ -46,6 +47,7 @@ export function declarations() {
         ViewerToolbarComponent,
         ViewerSidebarComponent,
         ViewerOpenWithComponent,
+        ViewerDefaultSidebarComponent,
         ViewerMoreActionsComponent
     ];
 }
