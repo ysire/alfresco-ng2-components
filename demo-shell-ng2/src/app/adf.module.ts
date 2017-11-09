@@ -14,7 +14,7 @@ import { ActivitiProcessListModule } from 'ng2-activiti-processlist';
 import { DiagramsModule } from 'ng2-activiti-diagrams';
 import { AnalyticsModule } from 'ng2-activiti-analytics';
 
-import { DocumentListModule, SocialModule, TagModule, WebScriptModule } from '@adf/content-service';
+import { DocumentListModule, SocialModule, TagModule, WebScriptModule } from '@adf/contents-service';
 
 export function modules() {
   return [

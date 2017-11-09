@@ -162,7 +162,7 @@
   "license": "Apache-2.0",
   "bundlesize": [
     {
-      "path": "./content-service/bundles/content-service.js",
+      "path": "./contents-service/bundles/contents-service.js",
       "maxSize": "50 kb"
     }
   ],
