@@ -1,9 +1,9 @@
 @import '../../../content-services/styles/index';
+@import '../../../process-services/styles/index';
 
 @import '../../../ng2-alfresco-core/styles/index';
 @import '../../../ng2-activiti-analytics/styles/index';
 @import '../../../ng2-activiti-diagrams/styles/index';
-@import '../../../ng2-activiti-form/styles/index';
 @import '../../../ng2-activiti-processlist/styles/index';
 @import '../../../ng2-activiti-tasklist/styles/index';
 @import '../../../ng2-alfresco-datatable/styles/index';
@@ -15,11 +15,13 @@
     @include alfresco-core-theme($theme);
     @include alfresco-activity-analytics-theme($theme);
     @include alfresco-activity-diagrams-theme($theme);
-    @include alfresco-activity-form-theme($theme);
     @include alfresco-activity-processlist-theme($theme);
     @include alfresco-activity-tasklist-theme($theme);
     @include alfresco-datatable-theme($theme);
-    @include alfresco-content-services-theme($theme);
+
+    @include adf-content-services-theme($theme);
+    @include adf-process-services-theme($theme);
+
     @include alfresco-login-theme($theme);
     @include alfresco-userinfo-theme($theme);
     @include alfresco-search-theme($theme);

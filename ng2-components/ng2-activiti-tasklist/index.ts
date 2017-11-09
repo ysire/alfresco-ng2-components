@@ -18,7 +18,7 @@
 import { DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ActivitiFormModule } from 'ng2-activiti-form';
+import { ActivitiFormModule } from '@adf/process-services';
 
 import { CoreModule, TRANSLATION_PROVIDER } from 'ng2-alfresco-core';
 import { DataTableModule } from 'ng2-alfresco-datatable';
