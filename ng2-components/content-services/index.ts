@@ -21,3 +21,4 @@ export * from './webscript';
 export * from './services';
 export * from './document-list';
 export * from './upload';
+export * from './search';

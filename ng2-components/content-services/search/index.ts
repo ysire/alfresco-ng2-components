@@ -1,4 +1,3 @@
-"use strict";
 /*!
  * @license
  * Copyright 2016 Alfresco Software, Ltd.
@@ -15,14 +14,5 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(require("./social"));
-__export(require("./tag"));
-__export(require("./webscript"));
-__export(require("./services"));
-__export(require("./document-list"));
-__export(require("./upload"));
-__export(require("./search"));
+
+export * from './public-api';
