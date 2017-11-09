@@ -27,7 +27,6 @@
             "ng2-activiti-form":["./ng2-activiti-form/"],
             "ng2-activiti-tasklist": ["./ng2-activiti-tasklist/"],
             "ng2-activiti-processlist": ["./ng2-activiti-processlist/"],
-            "ng2-alfresco-documentlist": ["./ng2-alfresco-documentlist/"],
             "ng2-alfresco-login": ["./ng2-alfresco-login/"],
             "ng2-alfresco-search": ["./ng2-alfresco-search/"],
             "ng2-alfresco-upload": ["./ng2-alfresco-upload/"],

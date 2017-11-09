@@ -27,6 +27,7 @@ module.exports = {
     resolve: {
         alias: {
             "@adf/content-service": path.resolve(__dirname, '../content-service/'),
+            "@adf/content-service$": path.resolve(__dirname, '../content-service/index.ts'),
             "ng2-alfresco-core$": path.resolve(__dirname, '../ng2-alfresco-core/index.ts'),
             "ng2-alfresco-core": path.resolve(__dirname, '../ng2-alfresco-core')
             // "ng2-alfresco-datatable": path.resolve(__dirname, '../ng2-alfresco-datatable/index.ts'),

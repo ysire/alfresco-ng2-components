@@ -19,3 +19,4 @@ export * from './social';
 export * from './tag';
 export * from './webscript';
 export * from './services';
+export * from './document-list';

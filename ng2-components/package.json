@@ -162,60 +162,8 @@
   "license": "Apache-2.0",
   "bundlesize": [
     {
-      "path": "./ng2-activiti-analytics/bundles/ng2-activiti-analytics.js",
-      "maxSize": "20 kB"
-    },
-    {
-      "path": "./ng2-activiti-diagrams/bundles/ng2-activiti-diagrams.js",
-      "maxSize": "40 kB"
-    },
-    {
-      "path": "./ng2-activiti-form/bundles/ng2-activiti-form.js",
-      "maxSize": "50 kB"
-    },
-    {
-      "path": "./ng2-activiti-processlist/bundles/ng2-activiti-processlist.js",
-      "maxSize": "20 kB"
-    },
-    {
-      "path": "./ng2-activiti-tasklist/bundles/ng2-activiti-tasklist.js",
-      "maxSize": "50 kB"
-    },
-    {
-      "path": "./ng2-alfresco-core/bundles/ng2-alfresco-core.js",
-      "maxSize": "50 kB"
-    },
-    {
-      "path": "./ng2-alfresco-datatable/bundles/ng2-alfresco-datatable.js",
-      "maxSize": "10 kB"
-    },
-    {
-      "path": "./ng2-alfresco-documentlist/bundles/ng2-alfresco-documentlist.js",
-      "maxSize": "20 kB"
-    },
-    {
-      "path": "./ng2-alfresco-login/bundles/ng2-alfresco-login.js",
-      "maxSize": "10 kb"
-    },
-    {
-      "path": "./ng2-alfresco-search/bundles/ng2-alfresco-search.js",
-      "maxSize": "10 kb"
-    },
-    {
       "path": "./content-service/bundles/content-service.js",
-      "maxSize": "10 kb"
-    },
-    {
-      "path": "./ng2-alfresco-upload/bundles/ng2-alfresco-upload.js",
-      "maxSize": "10 kB"
-    },
-    {
-      "path": "./ng2-alfresco-userinfo/bundles/ng2-alfresco-userinfo.js",
-      "maxSize": "10 kb"
-    },
-    {
-      "path": "./ng2-alfresco-viewer/bundles/ng2-alfresco-viewer.js",
-      "maxSize": "20 kB"
+      "maxSize": "50 kb"
     }
   ],
   "module": "./index.js",

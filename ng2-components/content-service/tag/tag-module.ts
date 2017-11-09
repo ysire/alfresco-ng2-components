@@ -18,10 +18,10 @@
 import { NgModule } from '@angular/core';
 import { CoreModule, TRANSLATION_PROVIDER } from 'ng2-alfresco-core';
 import { MaterialModule } from '../material.module';
+import { TagService } from '../services/tag.service';
 import { TagActionsComponent } from './tag-actions.component';
 import { TagListComponent } from './tag-list.component';
 import { TagNodeListComponent } from './tag-node-list.component';
-import { TagService } from '../services/tag.service';
 
 @NgModule({
     imports: [
@@ -44,8 +44,8 @@ import { TagService } from '../services/tag.service';
             provide: TRANSLATION_PROVIDER,
             multi: true,
             useValue: {
-                name: '@adf/content-service/tag',
-                source: 'assets/@adf/content-service/tag'
+                name: 'ng2-alfresco-tag',
+                source: 'assets/ng2-alfresco-tag'
             }
         }
     ]
