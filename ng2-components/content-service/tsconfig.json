@@ -9,7 +9,7 @@
     "newLine": "lf",
     "module": "es2015",
     "moduleResolution": "node",
-    "outDir": "../bundles",
+    "outDir": "../dist",
     "rootDir": ".",
     "rootDirs": [
       "."
@@ -22,13 +22,19 @@
     "types": [],
     "baseUrl": ".",
     "paths": {
-      "ng2-alfresco-core/*": ["../ng2-alfresco-core/*"],
+      "ng2-alfresco-core": ["../ng2-alfresco-core/"],
+      "ng2-alfresco-datatable": ["../ng2-alfresco-datatable/"],
       "@adf/content-service/*": ["../content-service/*"]
     }
   },
   "files": [
     "public-api.ts",
     "typings.d.ts"
+  ],
+  "exclude": [
+    "demo",
+    "node_modules",
+    "dist"
   ],
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,

@@ -65,21 +65,6 @@
         },
         {
           "glob": "**/*",
-          "input": "../node_modules/ng2-alfresco-social/bundles/assets",
-          "output": "./assets/"
-        },
-        {
-          "glob": "**/*",
-          "input": "../node_modules/ng2-alfresco-tag/bundles/assets",
-          "output": "./assets/"
-        },
-        {
-          "glob": "**/*",
-          "input": "../node_modules/ng2-alfresco-webscript/bundles/assets",
-          "output": "./assets/"
-        },
-        {
-          "glob": "**/*",
           "input": "../node_modules/ng2-activiti-analytics/bundles/assets",
           "output": "./assets/"
         },
@@ -194,21 +179,6 @@
         },
         {
           "glob": "**/*",
-          "input": "../../ng2-components/ng2-alfresco-social/bundles/assets",
-          "output": "./assets/"
-        },
-        {
-          "glob": "**/*",
-          "input": "../../ng2-components/ng2-alfresco-tag/bundles/assets",
-          "output": "./assets/"
-        },
-        {
-          "glob": "**/*",
-          "input": "../../ng2-components/ng2-alfresco-webscript/bundles/assets",
-          "output": "./assets/"
-        },
-        {
-          "glob": "**/*",
           "input": "../../ng2-components/ng2-activiti-analytics/bundles/assets",
           "output": "./assets/"
         },
@@ -272,21 +242,6 @@
           "glob": "**/*",
           "input": "../../ng2-components/ng2-alfresco-viewer/src/i18n",
           "output": "./assets/ng2-alfresco-viewer/i18n"
-        },
-        {
-          "glob": "**/*",
-          "input": "../../ng2-components/ng2-alfresco-social/src/i18n",
-          "output": "./assets/ng2-alfresco-social/i18n"
-        },
-        {
-          "glob": "**/*",
-          "input": "../../ng2-components/ng2-alfresco-tag/src/i18n",
-          "output": "./assets/ng2-alfresco-tag/i18n"
-        },
-        {
-          "glob": "**/*",
-          "input": "../../ng2-components/ng2-alfresco-webscript/src/i18n",
-          "output": "./assets/ng2-alfresco-webscript/i18n"
         },
         {
           "glob": "**/*",

@@ -19,7 +19,7 @@ import { Injectable } from '@angular/core';
 import { EcmModelService, FormFieldOption, FormService } from 'ng2-activiti-form';
 import { AlfrescoApiService, LogService } from 'ng2-alfresco-core';
 import { AppConfigService } from 'ng2-alfresco-core';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 interface ActivitiData {
     rest: {
