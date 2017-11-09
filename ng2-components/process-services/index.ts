@@ -17,3 +17,5 @@
 
 export * from './form';
 export * from './process-list';
+export * from './diagram';
+export * from './analytics';

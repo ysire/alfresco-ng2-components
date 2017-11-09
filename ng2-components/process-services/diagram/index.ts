@@ -1,4 +1,3 @@
-"use strict";
 /*!
  * @license
  * Copyright 2016 Alfresco Software, Ltd.
@@ -15,11 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(require("./form"));
-__export(require("./process-list"));
-__export(require("./diagram"));
-__export(require("./analytics"));
+
+// primitives
+export * from './components/index';
+export * from './components/raphael/index';
+export * from './models/index';
+export * from './diagram-module';

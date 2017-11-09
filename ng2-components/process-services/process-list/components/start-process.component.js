@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var process_services_1 = require("@adf/process-services");
+var form_1 = require("../../form");
 var process_definition_model_1 = require("./../models/process-definition.model");
 var StartProcessInstanceComponent = (function () {
     function StartProcessInstanceComponent(activitiProcess) {
@@ -134,7 +134,7 @@ var StartProcessInstanceComponent = (function () {
         core_1.Output()
     ], StartProcessInstanceComponent.prototype, "error", void 0);
     __decorate([
-        core_1.ViewChild(process_services_1.StartFormComponent)
+        core_1.ViewChild(form_1.StartFormComponent)
     ], StartProcessInstanceComponent.prototype, "startForm", void 0);
     StartProcessInstanceComponent = __decorate([
         core_1.Component({

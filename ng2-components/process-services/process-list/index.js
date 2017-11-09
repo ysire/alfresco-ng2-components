@@ -38,4 +38,4 @@ __export(require("./models/process-definition.model"));
 __export(require("./models/process-instance.model"));
 __export(require("./models/process-instance-filter.model"));
 __export(require("./models/process-instance-variable.model"));
-__export(require("./form-module"));
+__export(require("./process-module"));
