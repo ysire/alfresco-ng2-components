@@ -20,7 +20,7 @@ import { HttpModule } from '@angular/http';
 
 import { DataTableModule } from '@adf/core';
 import { CoreModule, TRANSLATION_PROVIDER } from 'ng2-alfresco-core';
-import { MaterialModule } from './components/material.module';
+import { MaterialModule } from '../material.module';
 
 import { MASK_DIRECTIVE, WIDGET_DIRECTIVES } from './components/widgets/index';
 

@@ -24,7 +24,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("@angular/common");
 var core_1 = require("@angular/core");
-var ng2_activiti_tasklist_1 = require("ng2-activiti-tasklist");
+var task_list_1 = require("../../task-list");
 var Rx_1 = require("rxjs/Rx");
 var ProcessInstanceTasksComponent = (function () {
     function ProcessInstanceTasksComponent(activitiProcess, logService, dialog) {
@@ -112,7 +112,7 @@ var ProcessInstanceTasksComponent = (function () {
         }
     };
     ProcessInstanceTasksComponent.prototype.clickTask = function ($event, task) {
-        var args = new ng2_activiti_tasklist_1.TaskDetailsEvent(task);
+        var args = new task_list_1.TaskDetailsEvent(task);
         this.taskClick.emit(args);
     };
     ProcessInstanceTasksComponent.prototype.clickStartTask = function () {
