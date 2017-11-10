@@ -20,9 +20,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Rx';
 
-import { FormModule, FormService } from '../../form';
 import { ActivitiTaskListModule } from 'ng2-activiti-tasklist';
 import { AlfrescoTranslationService, CoreModule } from 'ng2-alfresco-core';
+import { FormModule, FormService } from '../../form';
 
 import { ProcessInstance } from '../models/process-instance.model';
 import { exampleProcess, exampleProcessNoName } from './../assets/process.model.mock';

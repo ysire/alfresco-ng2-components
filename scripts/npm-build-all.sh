@@ -15,7 +15,10 @@ eval SINGLE_TEST=""
 eval EXEC_VERSION_JSAPI=false
 eval JSAPI_VERSION=""
 
-eval projects=( "ng2-alfresco-core"
+eval projects=( "core"
+    "content-services"
+    "process-services"
+    "ng2-alfresco-core"
     "ng2-alfresco-datatable"
     "ng2-alfresco-upload"
     "ng2-activiti-diagrams"

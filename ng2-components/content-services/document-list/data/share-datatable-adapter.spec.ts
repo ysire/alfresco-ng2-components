@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
+import { DataColumn, DataRow, DataSorting } from '@adf/core';
 import { async, TestBed } from '@angular/core/testing';
 import { CoreModule } from 'ng2-alfresco-core';
-import { DataColumn, DataRow, DataSorting } from '@adf/core';
 import { FileNode, FolderNode } from './../assets/document-library.model.mock';
 import { DocumentListService } from './../services/document-list.service';
 import { ShareDataRow } from './share-data-row.model';

@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 
+import { DataRowEvent, DataTableModule, ObjectDataRow, ObjectDataTableAdapter } from '@adf/core';
 import { SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MaterialModule } from '../../material.module';
 import { AppConfigService, CoreModule, TranslationService } from 'ng2-alfresco-core';
-import { DataTableModule, DataRowEvent, ObjectDataRow, ObjectDataTableAdapter } from '@adf/core';
+import { MaterialModule } from '../../material.module';
 import { TranslationMock } from '../assets/translation.service.mock';
 import { TaskListService } from '../services/tasklist.service';
 import { TaskListComponent } from './task-list.component';

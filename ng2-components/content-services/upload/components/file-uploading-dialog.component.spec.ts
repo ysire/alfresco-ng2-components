@@ -18,7 +18,7 @@
 import { EventEmitter } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FileModel, FileUploadCompleteEvent, FileUploadErrorEvent, UploadService } from 'ng2-alfresco-core';
-import { UploadModule } from '../upload-module';
+import { UploadModule } from '../';
 import { FileUploadingDialogComponent } from './file-uploading-dialog.component';
 
 describe('FileUploadingDialogComponent', () => {

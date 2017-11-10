@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
+import { ProcessContentService } from ''; ../../form; '';
+import { DataTableModule } from '@adf/core';
 import { NgZone, SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatProgressSpinnerModule } from '@angular/material';
 import { By } from '@angular/platform-browser';
-import { ProcessContentService } from ''../../form';
 import { AppConfigService, CoreModule, TranslationService } from 'ng2-alfresco-core';
-import { DataTableModule } from '@adf/core';
 import { Observable } from 'rxjs/Rx';
 import { AppConfigServiceMock } from '../assets/app-config.service.mock';
 import { TranslationMock } from '../assets/translation.service.mock';

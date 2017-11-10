@@ -24,7 +24,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AlfrescoAuthenticationService, CoreModule } from 'ng2-alfresco-core';
 import { AlfrescoTranslationService, UserPreferencesService } from 'ng2-alfresco-core';
 
-import { MaterialModule } from '../material.module';
+import { MaterialModule } from '../../material.module';
 import { LoginErrorEvent } from '../models/login-error.event';
 import { LoginSuccessEvent } from '../models/login-success.event';
 import { AuthenticationMock } from './../assets/authentication.service.mock';

@@ -19,10 +19,10 @@ import { SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppConfigService, AppsProcessService, CoreModule, TranslationService } from 'ng2-alfresco-core';
 import { Observable } from 'rxjs/Rx';
+import { MaterialModule } from '../../material.module';
 import { TranslationMock } from '../assets/translation.service.mock';
 import { FilterParamsModel, FilterRepresentationModel } from '../models/filter.model';
 import { TaskListService } from '../services/tasklist.service';
-import { MaterialModule } from '../../material.module';
 import { TaskFiltersComponent } from './task-filters.component';
 
 describe('TaskFiltersComponent', () => {

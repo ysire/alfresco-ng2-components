@@ -23,9 +23,9 @@ import {
     MatInputModule,
     MatSelectModule
 } from '@angular/material';
-import { FormModule, FormService } from '../../form';
 import { AlfrescoTranslationService, CoreModule } from 'ng2-alfresco-core';
 import { Observable } from 'rxjs/Rx';
+import { FormModule, FormService } from '../../form';
 
 import { ProcessInstanceVariable } from '../models/process-instance-variable.model';
 import { ProcessService } from '../services/process.service';

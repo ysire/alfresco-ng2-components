@@ -21,12 +21,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatInputModule } from '@angular/material';
 import { Observable } from 'rxjs/Rx';
 
+import { DataTableModule } from '@adf/core';
 import {
     CommentListComponent,
-    CommentsComponent,
+    CommentsComponent
 } from 'ng2-activiti-tasklist';
 import { AlfrescoTranslationService, CommentProcessService, CoreModule, PeopleProcessService } from 'ng2-alfresco-core';
-import { DataTableModule } from '@adf/core';
 
 import { TranslationMock } from './../assets/translation.service.mock';
 import { ProcessService } from './../services/process.service';

@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
+import { DataTableModule } from '@adf/core';
 import { CUSTOM_ELEMENTS_SCHEMA, SimpleChange } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { CoreModule } from 'ng2-alfresco-core';
-import { DataTableModule } from '@adf/core';
-import { fakeNodeWithCreatePermission } from '../../assets/document-list.component.mock';
 import { MaterialModule } from '../../../material.module';
+import { fakeNodeWithCreatePermission } from '../../assets/document-list.component.mock';
 import { DocumentListService } from '../../services/document-list.service';
 import { DocumentListComponent } from '../document-list.component';
 import { DropdownBreadcrumbComponent } from './dropdown-breadcrumb.component';

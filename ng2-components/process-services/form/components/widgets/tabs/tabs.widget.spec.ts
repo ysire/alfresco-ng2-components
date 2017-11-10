@@ -17,8 +17,8 @@
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CoreModule } from 'ng2-alfresco-core';
-import { fakeFormJson } from '../../../services/assets/widget-visibility.service.mock';
 import { MaterialModule } from '../../../../material.module';
+import { fakeFormJson } from '../../../services/assets/widget-visibility.service.mock';
 import { FormFieldModel } from '../core/form-field.model';
 import { FormModel } from '../core/form.model';
 import { TabModel } from '../core/tab.model';

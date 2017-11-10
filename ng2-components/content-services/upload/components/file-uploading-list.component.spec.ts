@@ -18,7 +18,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AlfrescoTranslationService, FileUploadStatus, NodesApiService, NotificationService, UploadService } from 'ng2-alfresco-core';
 import { Observable } from 'rxjs/Rx';
-import { UploadModule } from '../upload-module';
+import { UploadModule } from '../';
 import { FileUploadingListComponent } from './file-uploading-list.component';
 
 describe('FileUploadingListComponent', () => {

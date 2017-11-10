@@ -15,13 +15,14 @@
  * limitations under the License.
  */
 
+import { DataColumn, DataTableComponent } from '@adf/core';
+import { DataTableModule } from '@adf/core';
 import { CUSTOM_ELEMENTS_SCHEMA, NgZone, SimpleChange, TemplateRef } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Pagination } from 'alfresco-js-api';
 import { AlfrescoApiService, AlfrescoTranslationService, AppConfigService, CoreModule, UserPreferencesService } from 'ng2-alfresco-core';
-import { DataColumn, DataTableComponent } from '@adf/core';
-import { DataTableModule } from '@adf/core';
 import { Observable, Subject } from 'rxjs/Rx';
+import { MaterialModule } from '../../material.module';
 import { FileNode, FolderNode } from '../assets/document-library.model.mock';
 import {
     fakeNodeAnswerWithEntries,
@@ -29,7 +30,6 @@ import {
     fakeNodeWithCreatePermission,
     fakeNodeWithNoPermission
 } from '../assets/document-list.component.mock';
-import { MaterialModule } from '../../material.module';
 import { ContentActionModel } from '../models/content-action.model';
 import { NodeMinimal, NodeMinimalEntry, NodePaging } from '../models/document-library.model';
 import { ImageResolver } from './../data/image-resolver.model';

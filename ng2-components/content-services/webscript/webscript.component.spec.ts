@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
+import { DataTableModule } from '@adf/core';
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppConfigService, CoreModule } from 'ng2-alfresco-core';
-import { DataTableModule } from '@adf/core';
 import { WebscriptComponent } from './webscript.component';
 
 declare let jasmine: any;

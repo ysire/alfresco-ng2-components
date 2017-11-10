@@ -18,9 +18,9 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppConfigService, CoreModule } from 'ng2-alfresco-core';
-import { TagActionsComponent } from './tag-actions.component';
-import { TagService } from '../services/tag.service';
 import { MaterialModule } from '../material.module';
+import { TagService } from '../services/tag.service';
+import { TagActionsComponent } from './tag-actions.component';
 
 declare let jasmine: any;
 

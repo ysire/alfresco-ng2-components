@@ -17,9 +17,9 @@
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CoreModule } from 'ng2-alfresco-core';
+import { MaterialModule } from '../../../../material.module';
 import { ActivitiAlfrescoContentService } from '../../../services/activiti-alfresco.service';
 import { fakeFormJson } from '../../../services/assets/widget-visibility.service.mock';
-import { MaterialModule } from '../../../../material.module';
 import { WIDGET_DIRECTIVES } from '../index';
 import { MASK_DIRECTIVE } from '../index';
 import { EcmModelService } from './../../../services/ecm-model.service';

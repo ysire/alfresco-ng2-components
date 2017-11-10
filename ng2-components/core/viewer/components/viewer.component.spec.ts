@@ -21,7 +21,7 @@ import { Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CoreModule, RenditionsService } from 'ng2-alfresco-core';
-import { MaterialModule } from './../material.module';
+import { MaterialModule } from './../../material.module';
 
 import { AlfrescoApiService } from 'ng2-alfresco-core';
 import { Observable } from 'rxjs/Rx';
