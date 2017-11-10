@@ -24,12 +24,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var Rx_1 = require("rxjs/Rx");
-var ActivitiAlfrescoContentService = (function () {
-    function ActivitiAlfrescoContentService(apiService, logService) {
+var ActivitiContentService = (function () {
+    function ActivitiContentService(apiService, logService) {
         this.apiService = apiService;
         this.logService = logService;
     }
-    ActivitiAlfrescoContentService_1 = ActivitiAlfrescoContentService;
+    ActivitiContentService_1 = ActivitiContentService;
     /**
      * Returns a list of child nodes below the specified folder
      *
@@ -37,7 +37,7 @@ var ActivitiAlfrescoContentService = (function () {
      * @param folderId
      * @returns {null}
      */
-    ActivitiAlfrescoContentService.prototype.getAlfrescoNodes = function (accountId, folderId) {
+    ActivitiContentService.prototype.getAlfrescoNodes = function (accountId, folderId) {
         var _this = this;
         var apiService = this.apiService.getInstance();
         var accountShortId = accountId.replace('alfresco-', '');
@@ -53,7 +53,7 @@ var ActivitiAlfrescoContentService = (function () {
      * @param siteId
      * @returns {null}
      */
-    ActivitiAlfrescoContentService.prototype.linkAlfrescoNode = function (accountId, node, siteId) {
+    ActivitiContentService.prototype.linkAlfrescoNode = function (accountId, node, siteId) {
         var _this = this;
         var apiService = this.apiService.getInstance();
         return Rx_1.Observable.fromPromise(apiService.activiti.contentApi.createTemporaryRelatedContent({
@@ -64,33 +64,33 @@ var ActivitiAlfrescoContentService = (function () {
             sourceId: node.id + '@' + siteId
         })).map(this.toJson).catch(function (err) { return _this.handleError(err); });
     };
-    ActivitiAlfrescoContentService.prototype.toJson = function (res) {
+    ActivitiContentService.prototype.toJson = function (res) {
         if (res) {
             return res || {};
         }
         return {};
     };
-    ActivitiAlfrescoContentService.prototype.toJsonArray = function (res) {
+    ActivitiContentService.prototype.toJsonArray = function (res) {
         if (res) {
             return res.data || [];
         }
         return [];
     };
-    ActivitiAlfrescoContentService.prototype.handleError = function (error) {
-        var errMsg = ActivitiAlfrescoContentService_1.UNKNOWN_ERROR_MESSAGE;
+    ActivitiContentService.prototype.handleError = function (error) {
+        var errMsg = ActivitiContentService_1.UNKNOWN_ERROR_MESSAGE;
         if (error) {
             errMsg = (error.message) ? error.message :
-                error.status ? error.status + " - " + error.statusText : ActivitiAlfrescoContentService_1.GENERIC_ERROR_MESSAGE;
+                error.status ? error.status + " - " + error.statusText : ActivitiContentService_1.GENERIC_ERROR_MESSAGE;
         }
         this.logService.error(errMsg);
         return Rx_1.Observable.throw(errMsg);
     };
-    ActivitiAlfrescoContentService.UNKNOWN_ERROR_MESSAGE = 'Unknown error';
-    ActivitiAlfrescoContentService.GENERIC_ERROR_MESSAGE = 'Server error';
-    ActivitiAlfrescoContentService = ActivitiAlfrescoContentService_1 = __decorate([
+    ActivitiContentService.UNKNOWN_ERROR_MESSAGE = 'Unknown error';
+    ActivitiContentService.GENERIC_ERROR_MESSAGE = 'Server error';
+    ActivitiContentService = ActivitiContentService_1 = __decorate([
         core_1.Injectable()
-    ], ActivitiAlfrescoContentService);
-    return ActivitiAlfrescoContentService;
-    var ActivitiAlfrescoContentService_1;
+    ], ActivitiContentService);
+    return ActivitiContentService;
+    var ActivitiContentService_1;
 }());
-exports.ActivitiAlfrescoContentService = ActivitiAlfrescoContentService;
+exports.ActivitiContentService = ActivitiContentService;
