@@ -16,7 +16,7 @@
  */
 
 import { NgModule } from '@angular/core';
-import { ServicesModule, TRANSLATION_PROVIDER } from '@adf/core';
+import { TRANSLATION_PROVIDER } from '@adf/core';
 import { MaterialModule } from '../material.module';
 import { TagService } from '../services/tag.service';
 import { TagActionsComponent } from './tag-actions.component';
@@ -25,7 +25,7 @@ import { TagNodeListComponent } from './tag-node-list.component';
 
 @NgModule({
     imports: [
-        ServicesModule,
+
         MaterialModule
     ],
     exports: [

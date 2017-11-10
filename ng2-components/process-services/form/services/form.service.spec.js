@@ -18,7 +18,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var testing_1 = require("@angular/core/testing");
 var http_1 = require("@angular/http");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_1 = require("@adf/core");
 var form_definition_model_1 = require("../models/form-definition.model");
 var form_service_mock_1 = require("./assets/form.service.mock");
 var ecm_model_service_1 = require("./ecm-model.service");
@@ -52,9 +52,7 @@ describe('Form service', function () {
     var logService;
     beforeEach(testing_1.async(function () {
         testing_1.TestBed.configureTestingModule({
-            imports: [
-                ng2_alfresco_core_1.CoreModule
-            ],
+            imports: [],
             providers: [
                 ecm_model_service_1.EcmModelService,
                 form_service_1.FormService
@@ -63,8 +61,8 @@ describe('Form service', function () {
     }));
     beforeEach(function () {
         service = testing_1.TestBed.get(form_service_1.FormService);
-        apiService = testing_1.TestBed.get(ng2_alfresco_core_1.AlfrescoApiService);
-        logService = testing_1.TestBed.get(ng2_alfresco_core_1.LogService);
+        apiService = testing_1.TestBed.get(core_1.AlfrescoApiService);
+        logService = testing_1.TestBed.get(core_1.LogService);
     });
     beforeEach(function () {
         jasmine.Ajax.install();

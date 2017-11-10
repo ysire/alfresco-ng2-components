@@ -17,7 +17,6 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 var testing_1 = require("@angular/core/testing");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
 var index_1 = require("./../components/widgets/core/index");
 var widget_visibility_model_1 = require("./../models/widget-visibility.model");
 var widget_visibility_service_mock_1 = require("./assets/widget-visibility.service.mock");
@@ -28,9 +27,7 @@ describe('WidgetVisibilityService', function () {
     var stubFormWithFields = new index_1.FormModel(widget_visibility_service_mock_1.fakeFormJson);
     beforeEach(function () {
         testing_1.TestBed.configureTestingModule({
-            imports: [
-                ng2_alfresco_core_1.CoreModule
-            ],
+            imports: [],
             providers: [
                 widget_visibility_service_1.WidgetVisibilityService
             ]
