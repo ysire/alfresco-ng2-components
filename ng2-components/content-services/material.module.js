@@ -33,6 +33,7 @@ function modules() {
         material_1.MatInputModule,
         material_1.MatListModule,
         material_1.MatProgressSpinnerModule,
+        material_1.MatProgressBarModule,
         material_1.MatRippleModule,
         material_1.MatMenuModule,
         material_1.MatOptionModule,
