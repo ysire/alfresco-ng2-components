@@ -24,7 +24,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ng2_alfresco_core_1 = require("ng2-alfresco-core");
-var ng2_alfresco_datatable_1 = require("ng2-alfresco-datatable");
+var core_2 = require("@adf/core");
 var Rx_1 = require("rxjs/Rx");
 var preset_model_1 = require("../models/preset.model");
 var share_datatable_adapter_1 = require("./../data/share-datatable-adapter");
@@ -676,7 +676,7 @@ var DocumentListComponent = (function () {
         var defaultSorting;
         if (this.sorting) {
             var _a = this.sorting, key = _a[0], direction = _a[1];
-            defaultSorting = new ng2_alfresco_datatable_1.DataSorting(key, direction);
+            defaultSorting = new core_2.DataSorting(key, direction);
         }
         return defaultSorting;
     };
@@ -721,7 +721,7 @@ var DocumentListComponent = (function () {
     };
     DocumentListComponent.prototype.getLayoutPreset = function (name) {
         if (name === void 0) { name = 'default'; }
-        return (this.layoutPresets[name] || this.layoutPresets['default']).map(function (col) { return new ng2_alfresco_datatable_1.ObjectDataColumn(col); });
+        return (this.layoutPresets[name] || this.layoutPresets['default']).map(function (col) { return new core_2.ObjectDataColumn(col); });
     };
     DocumentListComponent.SINGLE_CLICK_NAVIGATION = 'click';
     DocumentListComponent.DOUBLE_CLICK_NAVIGATION = 'dblclick';
@@ -823,7 +823,7 @@ var DocumentListComponent = (function () {
         core_1.Output()
     ], DocumentListComponent.prototype, "error", void 0);
     __decorate([
-        core_1.ViewChild(ng2_alfresco_datatable_1.DataTableComponent)
+        core_1.ViewChild(core_2.DataTableComponent)
     ], DocumentListComponent.prototype, "dataTable", void 0);
     __decorate([
         core_1.HostListener('contextmenu', ['$event'])

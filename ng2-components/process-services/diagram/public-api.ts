@@ -18,4 +18,5 @@
 export * from './components/index';
 export * from './components/raphael/index';
 export * from './models/index';
-export * from './diagram-module';
+
+export * from './diagram.module';

@@ -22,4 +22,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./tag-actions.component"));
 __export(require("./tag-list.component"));
 __export(require("./tag-node-list.component"));
-__export(require("./tag-module"));
+__export(require("./tag.module"));

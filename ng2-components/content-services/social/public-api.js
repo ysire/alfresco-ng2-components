@@ -21,4 +21,4 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./rating.component"));
 __export(require("./like.component"));
-__export(require("./social-module"));
+__export(require("./social.module"));

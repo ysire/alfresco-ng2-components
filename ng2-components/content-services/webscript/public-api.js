@@ -20,4 +20,4 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./webscript.component"));
-__export(require("./webscript-module"));
+__export(require("./webscript.module"));

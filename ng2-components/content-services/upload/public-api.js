@@ -25,4 +25,4 @@ __export(require("./components/upload-drag-area.component"));
 __export(require("./components/file-uploading-list.component"));
 __export(require("./components/file-uploading-list-row.component"));
 __export(require("./directives/file-draggable.directive"));
-__export(require("./upload-module"));
+__export(require("./upload.module"));

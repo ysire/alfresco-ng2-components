@@ -18,7 +18,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("@angular/common");
 var ng2_alfresco_core_1 = require("ng2-alfresco-core");
-var ng2_alfresco_datatable_1 = require("ng2-alfresco-datatable");
+var core_1 = require("@adf/core");
 var share_data_row_model_1 = require("./share-data-row.model");
 var ShareDataTableAdapter = (function () {
     function ShareDataTableAdapter(documentListService, schema, sorting) {
@@ -123,7 +123,7 @@ var ShareDataTableAdapter = (function () {
         this.sortRows(this.rows, this.sorting);
     };
     ShareDataTableAdapter.prototype.sort = function (key, direction) {
-        var sorting = this.sorting || new ng2_alfresco_datatable_1.DataSorting();
+        var sorting = this.sorting || new core_1.DataSorting();
         if (key) {
             sorting.key = key;
             sorting.direction = direction || 'asc';

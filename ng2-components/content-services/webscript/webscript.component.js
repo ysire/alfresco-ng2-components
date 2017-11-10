@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ng2_alfresco_datatable_1 = require("ng2-alfresco-datatable");
+var core_2 = require("@adf/core");
 /**
  * <adf-webscript-get [scriptPath]="string"
  *                         [scriptArgs]="Object"
@@ -89,10 +89,10 @@ var WebscriptComponent = (function () {
         var datatableData = null;
         try {
             if (!data.schema) {
-                data.schema = ng2_alfresco_datatable_1.ObjectDataTableAdapter.generateSchema(data.data);
+                data.schema = core_2.ObjectDataTableAdapter.generateSchema(data.data);
             }
             if (data.schema && data.schema.length > 0) {
-                this.data = new ng2_alfresco_datatable_1.ObjectDataTableAdapter(data.data, data.schema);
+                this.data = new core_2.ObjectDataTableAdapter(data.data, data.schema);
             }
         }
         catch (e) {

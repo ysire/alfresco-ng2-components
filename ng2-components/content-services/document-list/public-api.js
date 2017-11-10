@@ -43,4 +43,4 @@ __export(require("./models/content-action.model"));
 __export(require("./models/document-library.model"));
 __export(require("./models/permissions.model"));
 __export(require("./models/permissions-style.model"));
-__export(require("./document-list-module"));
+__export(require("./document-list.module"));

@@ -25,7 +25,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("@angular/common");
 var core_1 = require("@angular/core");
 var ng2_alfresco_core_1 = require("ng2-alfresco-core");
-var ng2_alfresco_datatable_1 = require("ng2-alfresco-datatable");
+var core_2 = require("@adf/core");
 var filter_process_model_1 = require("../models/filter-process.model");
 var process_preset_model_1 = require("../models/process-preset.model");
 var ProcessInstanceListComponent = (function () {
@@ -55,7 +55,7 @@ var ProcessInstanceListComponent = (function () {
             schema = this.columnList.columns.map(function (c) { return c; });
         }
         if (!this.data) {
-            this.data = new ng2_alfresco_datatable_1.ObjectDataTableAdapter([], schema.length > 0 ? schema : this.getLayoutPreset(this.presetColumn));
+            this.data = new core_2.ObjectDataTableAdapter([], schema.length > 0 ? schema : this.getLayoutPreset(this.presetColumn));
         }
         else {
             if (schema && schema.length > 0) {
@@ -122,7 +122,7 @@ var ProcessInstanceListComponent = (function () {
     ProcessInstanceListComponent.prototype.createDataRow = function (instances) {
         var instancesRows = [];
         instances.forEach(function (row) {
-            instancesRows.push(new ng2_alfresco_datatable_1.ObjectDataRow(row));
+            instancesRows.push(new core_2.ObjectDataRow(row));
         });
         return instancesRows;
     };
@@ -147,7 +147,7 @@ var ProcessInstanceListComponent = (function () {
         if (sortingParams.length === 2) {
             var sortColumn = sortingParams[0] === 'created' ? 'started' : sortingParams[0];
             var sortOrder = sortingParams[1];
-            this.data.setSorting(new ng2_alfresco_datatable_1.DataSorting(sortColumn, sortOrder));
+            this.data.setSorting(new core_2.DataSorting(sortColumn, sortOrder));
         }
     };
     /**
@@ -258,7 +258,7 @@ var ProcessInstanceListComponent = (function () {
     };
     ProcessInstanceListComponent.prototype.getLayoutPreset = function (name) {
         if (name === void 0) { name = 'default'; }
-        return (this.layoutPresets[name] || this.layoutPresets['default']).map(function (col) { return new ng2_alfresco_datatable_1.ObjectDataColumn(col); });
+        return (this.layoutPresets[name] || this.layoutPresets['default']).map(function (col) { return new core_2.ObjectDataColumn(col); });
     };
     __decorate([
         core_1.ContentChild(ng2_alfresco_core_1.DataColumnListComponent)
