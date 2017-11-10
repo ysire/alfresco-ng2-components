@@ -33,7 +33,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_2 = require("@adf/core");
 var index_1 = require("./../components/widgets/index");
 var FormRenderingService = (function (_super) {
     __extends(FormRenderingService, _super);
@@ -41,24 +41,24 @@ var FormRenderingService = (function (_super) {
         var _this = _super.call(this) || this;
         _this.defaultValue = index_1.UnknownWidgetComponent;
         _this.types = {
-            'text': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.TextWidgetComponent),
-            'string': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.TextWidgetComponent),
-            'integer': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.NumberWidgetComponent),
-            'multi-line-text': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.MultilineTextWidgetComponentComponent),
-            'boolean': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.CheckboxWidgetComponent),
-            'dropdown': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.DropdownWidgetComponent),
-            'date': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.DateWidgetComponent),
-            'amount': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.AmountWidgetComponent),
-            'radio-buttons': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.RadioButtonsWidgetComponent),
-            'hyperlink': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.HyperlinkWidgetComponent),
-            'readonly-text': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.DisplayTextWidgetComponentComponent),
-            'typeahead': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.TypeaheadWidgetComponent),
-            'people': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.PeopleWidgetComponent),
-            'functional-group': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.FunctionalGroupWidgetComponent),
-            'dynamic-table': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.DynamicTableWidgetComponent),
-            'container': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.ContainerWidgetComponent),
-            'group': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.ContainerWidgetComponent),
-            'document': ng2_alfresco_core_1.DynamicComponentResolver.fromType(index_1.DocumentWidgetComponent)
+            'text': core_2.DynamicComponentResolver.fromType(index_1.TextWidgetComponent),
+            'string': core_2.DynamicComponentResolver.fromType(index_1.TextWidgetComponent),
+            'integer': core_2.DynamicComponentResolver.fromType(index_1.NumberWidgetComponent),
+            'multi-line-text': core_2.DynamicComponentResolver.fromType(index_1.MultilineTextWidgetComponentComponent),
+            'boolean': core_2.DynamicComponentResolver.fromType(index_1.CheckboxWidgetComponent),
+            'dropdown': core_2.DynamicComponentResolver.fromType(index_1.DropdownWidgetComponent),
+            'date': core_2.DynamicComponentResolver.fromType(index_1.DateWidgetComponent),
+            'amount': core_2.DynamicComponentResolver.fromType(index_1.AmountWidgetComponent),
+            'radio-buttons': core_2.DynamicComponentResolver.fromType(index_1.RadioButtonsWidgetComponent),
+            'hyperlink': core_2.DynamicComponentResolver.fromType(index_1.HyperlinkWidgetComponent),
+            'readonly-text': core_2.DynamicComponentResolver.fromType(index_1.DisplayTextWidgetComponentComponent),
+            'typeahead': core_2.DynamicComponentResolver.fromType(index_1.TypeaheadWidgetComponent),
+            'people': core_2.DynamicComponentResolver.fromType(index_1.PeopleWidgetComponent),
+            'functional-group': core_2.DynamicComponentResolver.fromType(index_1.FunctionalGroupWidgetComponent),
+            'dynamic-table': core_2.DynamicComponentResolver.fromType(index_1.DynamicTableWidgetComponent),
+            'container': core_2.DynamicComponentResolver.fromType(index_1.ContainerWidgetComponent),
+            'group': core_2.DynamicComponentResolver.fromType(index_1.ContainerWidgetComponent),
+            'document': core_2.DynamicComponentResolver.fromType(index_1.DocumentWidgetComponent)
         };
         _this.types['upload'] = function (field) {
             if (field) {
@@ -76,5 +76,5 @@ var FormRenderingService = (function (_super) {
         core_1.Injectable()
     ], FormRenderingService);
     return FormRenderingService;
-}(ng2_alfresco_core_1.DynamicComponentMapper));
+}(core_2.DynamicComponentMapper));
 exports.FormRenderingService = FormRenderingService;

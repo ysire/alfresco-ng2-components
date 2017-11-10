@@ -21,7 +21,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormModule } from '../form';
 
 import { DataTableModule } from '@adf/core';
-import { CoreModule, TRANSLATION_PROVIDER } from 'ng2-alfresco-core';
+import { CoreModule, TRANSLATION_PROVIDER } from '@adf/core';
 import { MaterialModule } from '../material.module';
 import { ProcessUploadService } from './services/process-upload.service';
 import { TaskListService } from './services/tasklist.service';

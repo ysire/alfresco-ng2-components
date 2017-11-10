@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_2 = require("@adf/core");
 var FormFieldComponent = (function () {
     function FormFieldComponent(formRenderingService, componentFactoryResolver, visibilityService, compiler) {
         this.formRenderingService = formRenderingService;
@@ -104,7 +104,7 @@ var FormFieldComponent = (function () {
             function RuntimeComponentModule() {
             }
             RuntimeComponentModule = __decorate([
-                core_1.NgModule({ imports: [ng2_alfresco_core_1.CoreModule], declarations: [decoratedCmp] })
+                core_1.NgModule({ imports: [core_2.CoreModule], declarations: [decoratedCmp] })
             ], RuntimeComponentModule);
             return RuntimeComponentModule;
         }());

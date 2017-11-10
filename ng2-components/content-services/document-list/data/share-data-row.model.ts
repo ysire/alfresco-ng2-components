@@ -17,7 +17,7 @@
 
 import { DataRow } from '@adf/core';
 import { MinimalNode, MinimalNodeEntity } from 'alfresco-js-api';
-import { ObjectUtils } from 'ng2-alfresco-core';
+import { ObjectUtils } from '@adf/core';
 import { PermissionStyleModel } from './../models/permissions-style.model';
 import { DocumentListService } from './../services/document-list.service';
 

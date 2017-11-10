@@ -17,7 +17,7 @@
 
 import { ObjectDataTableAdapter } from '@adf/core';
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
-import { AlfrescoApiService, LogService } from 'ng2-alfresco-core';
+import { AlfrescoApiService, LogService } from '@adf/core';
 
 /**
  * <adf-webscript-get [scriptPath]="string"

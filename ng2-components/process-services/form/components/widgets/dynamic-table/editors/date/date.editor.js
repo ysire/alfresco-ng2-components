@@ -26,7 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var material_1 = require("@angular/material");
 var moment = require("moment");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_2 = require("@adf/core");
 var DateEditorComponent = (function () {
     function DateEditorComponent(dateAdapter, preferences) {
         this.dateAdapter = dateAdapter;
@@ -68,8 +68,8 @@ var DateEditorComponent = (function () {
             selector: 'adf-date-editor',
             templateUrl: './date.editor.html',
             providers: [
-                { provide: material_1.DateAdapter, useClass: ng2_alfresco_core_1.MomentDateAdapter },
-                { provide: material_1.MAT_DATE_FORMATS, useValue: ng2_alfresco_core_1.MOMENT_DATE_FORMATS }
+                { provide: material_1.DateAdapter, useClass: core_2.MomentDateAdapter },
+                { provide: material_1.MAT_DATE_FORMATS, useValue: core_2.MOMENT_DATE_FORMATS }
             ],
             styleUrls: ['./date.editor.scss']
         })

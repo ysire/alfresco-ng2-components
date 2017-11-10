@@ -19,7 +19,7 @@
 
 import { DataColumn } from '@adf/core';
 import { Component } from '@angular/core';
-import { LogService } from 'ng2-alfresco-core';
+import { LogService } from '@adf/core';
 
 import { DocumentListComponent } from './../document-list.component';
 

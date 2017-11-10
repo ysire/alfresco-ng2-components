@@ -36,7 +36,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var material_1 = require("@angular/material");
 var moment = require("moment");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_2 = require("@adf/core");
 var widget_component_1 = require("./../widget.component");
 var DateWidgetComponent = (function (_super) {
     __extends(DateWidgetComponent, _super);
@@ -80,8 +80,8 @@ var DateWidgetComponent = (function (_super) {
         core_1.Component({
             selector: 'date-widget',
             providers: [
-                { provide: material_1.DateAdapter, useClass: ng2_alfresco_core_1.MomentDateAdapter },
-                { provide: material_1.MAT_DATE_FORMATS, useValue: ng2_alfresco_core_1.MOMENT_DATE_FORMATS }
+                { provide: material_1.DateAdapter, useClass: core_2.MomentDateAdapter },
+                { provide: material_1.MAT_DATE_FORMATS, useValue: core_2.MOMENT_DATE_FORMATS }
             ],
             templateUrl: './date.widget.html',
             styleUrls: ['./date.widget.scss'],

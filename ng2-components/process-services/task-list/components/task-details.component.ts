@@ -26,8 +26,8 @@ import { Component,
     ViewChild
 } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { PeopleProcessService, UserProcessModel } from 'ng2-alfresco-core';
-import { AlfrescoAuthenticationService, CardViewUpdateService, ClickNotification, LogService, UpdateNotification } from 'ng2-alfresco-core';
+import { PeopleProcessService, UserProcessModel } from '@adf/core';
+import { AlfrescoAuthenticationService, CardViewUpdateService, ClickNotification, LogService, UpdateNotification } from '@adf/core';
 import { Observable, Observer } from 'rxjs/Rx';
 import { ContentLinkModel, FormFieldValidator, FormModel, FormOutcomeEvent } from '../../form';
 import { TaskQueryRequestRepresentationModel } from '../models/filter.model';

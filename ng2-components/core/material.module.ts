@@ -31,7 +31,9 @@ import {
     MatSidenavModule,
     MatSlideToggleModule,
     MatTabsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatToolbarModule
 } from '@angular/material';
 
 export function modules() {
@@ -50,7 +52,9 @@ export function modules() {
         MatInputModule,
         MatSelectModule,
         MatListModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatSnackBarModule,
+        MatToolbarModule
     ];
 }
 

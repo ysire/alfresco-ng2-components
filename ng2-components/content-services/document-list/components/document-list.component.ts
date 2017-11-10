@@ -21,7 +21,7 @@ import {
     OnChanges, OnInit, Output, SimpleChanges, TemplateRef, ViewChild, ViewEncapsulation
 } from '@angular/core';
 import { DeletedNodesPaging, MinimalNodeEntity, MinimalNodeEntryEntity, NodePaging, Pagination, PersonEntry, SitePaging } from 'alfresco-js-api';
-import { AlfrescoApiService, AppConfigService, DataColumnListComponent, UserPreferencesService } from 'ng2-alfresco-core';
+import { AlfrescoApiService, AppConfigService, DataColumnListComponent, UserPreferencesService } from '@adf/core';
 import { Observable, Subject } from 'rxjs/Rx';
 import { presetsDefaultModel } from '../models/preset.model';
 import { ImageResolver } from './../data/image-resolver.model';

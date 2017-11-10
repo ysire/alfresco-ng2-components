@@ -21,7 +21,6 @@
         "types": ["jasmine"],
         "paths": {
             "@adf/*": ["./*"],
-            "ng2-alfresco-core": ["./ng2-alfresco-core/"],
             "alfresco-js-api": ["./node_modules/alfresco-js-api/"],
             "@angular/*": ["./node_modules/@angular/*"],
             "rxjs/*": ["./node_modules/rxjs/*"]

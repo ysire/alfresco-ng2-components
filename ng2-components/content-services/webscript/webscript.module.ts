@@ -17,7 +17,7 @@
 
 import { DataTableModule } from '@adf/core';
 import { NgModule } from '@angular/core';
-import { CoreModule, TRANSLATION_PROVIDER } from 'ng2-alfresco-core';
+import { CoreModule, TRANSLATION_PROVIDER } from '@adf/core';
 import { MaterialModule } from '../material.module';
 import { WebscriptComponent } from './webscript.component';
 
