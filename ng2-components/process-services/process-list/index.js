@@ -1,8 +1,4 @@
 "use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
 /*!
  * @license
  * Copyright 2016 Alfresco Software, Ltd.
@@ -19,4 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./public-api"));

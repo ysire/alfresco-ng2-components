@@ -20,9 +20,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormModule } from '../form';
 import { MaterialModule } from '../material.module';
 
+import { DataTableModule } from '@adf/core';
 import { ActivitiTaskListModule } from 'ng2-activiti-tasklist';
 import { CardViewUpdateService, CoreModule, TRANSLATION_PROVIDER } from 'ng2-alfresco-core';
-import { DataTableModule } from '@adf/core';
 
 import { CreateProcessAttachmentComponent } from './components/create-process-attachment.component';
 import { ProcessAttachmentListComponent } from './components/process-attachment-list.component';

@@ -11,6 +11,9 @@ content-services/**/*.d.ts
 process-services/**/*.js
 process-services/**/*.js.map
 process-services/**/*.d.ts
+core/**/*.js
+core/**/*.js.map
+core/**/*.d.ts
 *.tgz
 /package/
 /bundles/

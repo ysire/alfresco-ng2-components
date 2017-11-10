@@ -19,19 +19,19 @@ import { NgModule } from '@angular/core';
 import {
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
     MatDialogModule,
     MatIconModule,
+    MatInputModule,
+    MatListModule,
     MatMenuModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
-    MatTabsModule,
-    MatTooltipModule,
-    MatCheckboxModule,
-    MatSlideToggleModule,
-    MatInputModule,
     MatSelectModule,
-    MatListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatTabsModule,
+    MatTooltipModule
 } from '@angular/material';
 
 export function modules() {

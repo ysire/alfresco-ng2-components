@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@adf/core");
 var common_1 = require("@angular/common");
 var ng2_alfresco_core_1 = require("ng2-alfresco-core");
-var core_1 = require("@adf/core");
 var share_data_row_model_1 = require("./share-data-row.model");
 var ShareDataTableAdapter = (function () {
     function ShareDataTableAdapter(documentListService, schema, sorting) {

@@ -1,6 +1,6 @@
 {
-  "name": "ng2-alfresco-components",
-  "description": "Alfresco ng2 components",
+  "name": "alfresco-components",
+  "description": "Alfresco Angular components",
   "version": "1.9.0",
   "author": "Alfresco Software, Ltd.",
   "scripts": {
@@ -34,33 +34,15 @@
   "bugs": {
     "url": "https://github.com/Alfresco/alfresco-ng2-components/issues"
   },
-  "contributors": {
-    "0": {
-      "name": "Eugenio Romano",
-      "email": "eugenio.romano@alfresco.com"
-    },
-    "1": {
-      "name": "Eugenio Romano",
-      "email": "eugenio.romano@alfresco.com"
-    },
-    "2": {
-      "name": "Denys Vuika",
-      "email": "denys.vuika@gmail.com"
-    },
-    "3": {
-      "name": "Eugenio Romano",
-      "email": "eugenio.romano@alfresco.com"
-    }
-  },
-  "keywords": {
-    "0": "alfresco-ng2-components",
-    "1": "angular2",
-    "2": "typescript",
-    "3": "alfresco",
-    "4": "activiti",
-    "5": "ecm",
-    "6": "bpm"
-  },
+  "keywords": [
+    "alfresco-ng2-components",
+    "angular",
+    "typescript",
+    "alfresco",
+    "activiti",
+    "ecm",
+    "bpm"
+  ],
   "dependencies": {
     "@angular/animations": "5.0.0",
     "@angular/cdk": "5.0.0-rc0",
@@ -130,7 +112,6 @@
     "merge-stream": "1.0.1",
     "node-sass": "4.5.3",
     "null-loader": "0.1.1",
-    "package-json-merge": "0.0.1",
     "raw-loader": "0.5.1",
     "remap-istanbul": "0.6.3",
     "rimraf": "2.6.1",
@@ -161,6 +142,14 @@
   "bundlesize": [
     {
       "path": "./content-services/bundles/content-services.js",
+      "maxSize": "50 kb"
+    },
+    {
+      "path": "./process-services/bundles/process-services.js",
+      "maxSize": "50 kb"
+    },
+    {
+      "path": "./core/bundles/core.js",
       "maxSize": "50 kb"
     }
   ],
