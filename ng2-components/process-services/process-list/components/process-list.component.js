@@ -25,7 +25,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@adf/core");
 var common_1 = require("@angular/common");
 var core_2 = require("@angular/core");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_3 = require("@adf/core");
 var filter_process_model_1 = require("../models/filter-process.model");
 var process_preset_model_1 = require("../models/process-preset.model");
 var ProcessInstanceListComponent = (function () {
@@ -261,7 +261,7 @@ var ProcessInstanceListComponent = (function () {
         return (this.layoutPresets[name] || this.layoutPresets['default']).map(function (col) { return new core_1.ObjectDataColumn(col); });
     };
     __decorate([
-        core_2.ContentChild(ng2_alfresco_core_1.DataColumnListComponent)
+        core_2.ContentChild(core_3.DataColumnListComponent)
     ], ProcessInstanceListComponent.prototype, "columnList", void 0);
     __decorate([
         core_2.Input()

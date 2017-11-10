@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_2 = require("@adf/core");
 var UploadDragAreaComponent = (function () {
     function UploadDragAreaComponent(uploadService, translateService, notificationService) {
         this.uploadService = uploadService;
@@ -62,7 +62,7 @@ var UploadDragAreaComponent = (function () {
     UploadDragAreaComponent.prototype.onFilesDropped = function (files) {
         var _this = this;
         if (!this.disabled && files.length) {
-            var fileModels = files.map(function (file) { return new ng2_alfresco_core_1.FileModel(file, {
+            var fileModels = files.map(function (file) { return new core_2.FileModel(file, {
                 newVersion: _this.versioning,
                 path: '/',
                 parentId: _this.parentId || _this.rootFolderId
@@ -85,7 +85,7 @@ var UploadDragAreaComponent = (function () {
         var _this = this;
         if (!this.disabled) {
             item.file(function (file) {
-                var fileModel = new ng2_alfresco_core_1.FileModel(file, {
+                var fileModel = new core_2.FileModel(file, {
                     newVersion: _this.versioning,
                     parentId: _this.parentId || _this.rootFolderId,
                     path: item.fullPath.replace(item.name, '')
@@ -106,9 +106,9 @@ var UploadDragAreaComponent = (function () {
     UploadDragAreaComponent.prototype.onFolderEntityDropped = function (folder) {
         var _this = this;
         if (!this.disabled && folder.isDirectory) {
-            ng2_alfresco_core_1.FileUtils.flattern(folder).then(function (entries) {
+            core_2.FileUtils.flattern(folder).then(function (entries) {
                 var files = entries.map(function (entry) {
-                    return new ng2_alfresco_core_1.FileModel(entry.file, {
+                    return new core_2.FileModel(entry.file, {
                         newVersion: _this.versioning,
                         parentId: _this.parentId || _this.rootFolderId,
                         path: entry.relativeFolder
@@ -170,7 +170,7 @@ var UploadDragAreaComponent = (function () {
                 if (event.detail.data && event.detail.data.obj.entry.isFolder) {
                     parentId_1 = event.detail.data.obj.entry.id || this.parentId || this.rootFolderId;
                 }
-                var fileModels = files.map(function (fileInfo) { return new ng2_alfresco_core_1.FileModel(fileInfo.file, {
+                var fileModels = files.map(function (fileInfo) { return new core_2.FileModel(fileInfo.file, {
                     newVersion: _this.versioning,
                     path: fileInfo.relativeFolder,
                     parentId: parentId_1
@@ -238,7 +238,7 @@ var UploadDragAreaComponent = (function () {
             templateUrl: './upload-drag-area.component.html',
             styleUrls: ['./upload-drag-area.component.css'],
             providers: [
-                { provide: ng2_alfresco_core_1.EXTENDIBLE_COMPONENT, useExisting: core_1.forwardRef(function () { return UploadDragAreaComponent_1; }) }
+                { provide: core_2.EXTENDIBLE_COMPONENT, useExisting: core_1.forwardRef(function () { return UploadDragAreaComponent_1; }) }
             ],
             encapsulation: core_1.ViewEncapsulation.None
         })

@@ -27,7 +27,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var material_1 = require("@angular/material");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_2 = require("@adf/core");
 var document_list_component_1 = require("../document-list.component");
 var ContentNodeSelectorComponent = (function () {
     function ContentNodeSelectorComponent(contentNodeSelectorService, contentService, data, containingDialog) {
@@ -259,7 +259,7 @@ var ContentNodeSelectorComponent = (function () {
         core_1.ViewChild(document_list_component_1.DocumentListComponent)
     ], ContentNodeSelectorComponent.prototype, "documentList", void 0);
     __decorate([
-        core_1.ViewChild(ng2_alfresco_core_1.HighlightDirective)
+        core_1.ViewChild(core_2.HighlightDirective)
     ], ContentNodeSelectorComponent.prototype, "highlighter", void 0);
     ContentNodeSelectorComponent = __decorate([
         core_1.Component({

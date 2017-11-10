@@ -23,12 +23,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_2 = require("@adf/core");
 var FileUploadingListRowComponent = (function () {
     function FileUploadingListRowComponent() {
         this.cancel = new core_1.EventEmitter();
         this.remove = new core_1.EventEmitter();
-        this.FileUploadStatus = ng2_alfresco_core_1.FileUploadStatus;
+        this.FileUploadStatus = core_2.FileUploadStatus;
     }
     FileUploadingListRowComponent.prototype.onCancel = function (file) {
         this.cancel.emit(file);

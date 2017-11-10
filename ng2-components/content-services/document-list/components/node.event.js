@@ -26,7 +26,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_1 = require("@adf/core");
 var NodeEntityEvent = (function (_super) {
     __extends(NodeEntityEvent, _super);
     function NodeEntityEvent(entity) {
@@ -35,7 +35,7 @@ var NodeEntityEvent = (function (_super) {
         return _this;
     }
     return NodeEntityEvent;
-}(ng2_alfresco_core_1.BaseEvent));
+}(core_1.BaseEvent));
 exports.NodeEntityEvent = NodeEntityEvent;
 var NodeEntryEvent = (function (_super) {
     __extends(NodeEntryEvent, _super);
@@ -45,5 +45,5 @@ var NodeEntryEvent = (function (_super) {
         return _this;
     }
     return NodeEntryEvent;
-}(ng2_alfresco_core_1.BaseEvent));
+}(core_1.BaseEvent));
 exports.NodeEntryEvent = NodeEntryEvent;

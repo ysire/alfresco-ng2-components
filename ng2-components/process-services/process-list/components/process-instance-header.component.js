@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_2 = require("@adf/core");
 var ProcessInstanceHeaderComponent = (function () {
     function ProcessInstanceHeaderComponent() {
     }
@@ -33,47 +33,47 @@ var ProcessInstanceHeaderComponent = (function () {
     ProcessInstanceHeaderComponent.prototype.refreshData = function () {
         if (this.processInstance) {
             this.properties = [
-                new ng2_alfresco_core_1.CardViewTextItemModel({
+                new core_2.CardViewTextItemModel({
                     label: 'ADF_PROCESS_LIST.PROPERTIES.STATUS',
                     value: this.getProcessStatus(),
                     key: 'status'
                 }),
-                new ng2_alfresco_core_1.CardViewDateItemModel({
+                new core_2.CardViewDateItemModel({
                     label: 'ADF_PROCESS_LIST.PROPERTIES.DUE_DATE',
                     value: this.processInstance.ended,
                     format: 'MMM DD YYYY',
                     key: 'dueDate',
                     default: 'ADF_PROCESS_LIST.PROPERTIES.DUE_DATE_DEFAULT'
                 }),
-                new ng2_alfresco_core_1.CardViewTextItemModel({
+                new core_2.CardViewTextItemModel({
                     label: 'ADF_PROCESS_LIST.PROPERTIES.CATEGORY',
                     value: this.processInstance.processDefinitionCategory,
                     key: 'category',
                     default: 'ADF_PROCESS_LIST.PROPERTIES.CATEGORY_DEFAULT'
                 }),
-                new ng2_alfresco_core_1.CardViewTextItemModel({
+                new core_2.CardViewTextItemModel({
                     label: 'ADF_PROCESS_LIST.PROPERTIES.BUSINESS_KEY',
                     value: this.processInstance.businessKey,
                     key: 'businessKey',
                     default: 'ADF_PROCESS_LIST.PROPERTIES.BUSINESS_KEY_DEFAULT'
                 }),
-                new ng2_alfresco_core_1.CardViewTextItemModel({
+                new core_2.CardViewTextItemModel({
                     label: 'ADF_PROCESS_LIST.PROPERTIES.CREATED_BY',
                     value: this.getStartedByFullName(),
                     key: 'assignee',
                     default: 'ADF_PROCESS_LIST.PROPERTIES.CREATED_BY_DEFAULT'
                 }),
-                new ng2_alfresco_core_1.CardViewDateItemModel({
+                new core_2.CardViewDateItemModel({
                     label: 'ADF_PROCESS_LIST.PROPERTIES.CREATED',
                     value: this.processInstance.started,
                     format: 'MMM DD YYYY',
                     key: 'created'
                 }),
-                new ng2_alfresco_core_1.CardViewTextItemModel({ label: 'ADF_PROCESS_LIST.PROPERTIES.ID',
+                new core_2.CardViewTextItemModel({ label: 'ADF_PROCESS_LIST.PROPERTIES.ID',
                     value: this.processInstance.id,
                     key: 'id'
                 }),
-                new ng2_alfresco_core_1.CardViewTextItemModel({ label: 'ADF_PROCESS_LIST.PROPERTIES.DESCRIPTION',
+                new core_2.CardViewTextItemModel({ label: 'ADF_PROCESS_LIST.PROPERTIES.DESCRIPTION',
                     value: this.processInstance.processDefinitionDescription,
                     key: 'description',
                     default: 'ADF_PROCESS_LIST.PROPERTIES.DESCRIPTION_DEFAULT'

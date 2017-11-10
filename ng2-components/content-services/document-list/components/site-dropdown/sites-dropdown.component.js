@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_2 = require("@adf/core");
 var DropdownSitesComponent = (function () {
     function DropdownSitesComponent(sitesService) {
         this.sitesService = sitesService;
@@ -42,7 +42,7 @@ var DropdownSitesComponent = (function () {
         var _this = this;
         var siteFound;
         if (this.siteSelected === this.MY_FILES_VALUE) {
-            siteFound = new ng2_alfresco_core_1.SiteModel();
+            siteFound = new core_2.SiteModel();
         }
         else {
             siteFound = this.siteList.find(function (site) { return site.guid === _this.siteSelected; });

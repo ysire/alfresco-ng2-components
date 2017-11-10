@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_2 = require("@adf/core");
 var Rx_1 = require("rxjs/Rx");
 var file_uploading_list_component_1 = require("./file-uploading-list.component");
 var FileUploadingDialogComponent = (function () {
@@ -68,7 +68,7 @@ var FileUploadingDialogComponent = (function () {
                     return item.data.entry.id === objId;
                 });
                 if (file) {
-                    file.status = ng2_alfresco_core_1.FileUploadStatus.Cancelled;
+                    file.status = core_2.FileUploadStatus.Cancelled;
                     _this.changeDetecor.detectChanges();
                 }
             }

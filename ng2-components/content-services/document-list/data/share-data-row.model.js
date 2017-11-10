@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_1 = require("@adf/core");
 var ShareDataRow = (function () {
     function ShareDataRow(obj, documentListService, permissionsStyle) {
         this.obj = obj;
@@ -72,7 +72,7 @@ var ShareDataRow = (function () {
         if (this.cache[key] !== undefined) {
             return this.cache[key];
         }
-        return ng2_alfresco_core_1.ObjectUtils.getValue(this.obj.entry, key);
+        return core_1.ObjectUtils.getValue(this.obj.entry, key);
     };
     ShareDataRow.prototype.hasValue = function (key) {
         return this.getValue(key) !== undefined;

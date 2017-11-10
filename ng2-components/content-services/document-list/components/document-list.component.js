@@ -24,7 +24,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@adf/core");
 var core_2 = require("@angular/core");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_3 = require("@adf/core");
 var Rx_1 = require("rxjs/Rx");
 var preset_model_1 = require("../models/preset.model");
 var share_datatable_adapter_1 = require("./../data/share-datatable-adapter");
@@ -727,7 +727,7 @@ var DocumentListComponent = (function () {
     DocumentListComponent.DOUBLE_CLICK_NAVIGATION = 'dblclick';
     DocumentListComponent.DEFAULT_PAGE_SIZE = 20;
     __decorate([
-        core_2.ContentChild(ng2_alfresco_core_1.DataColumnListComponent)
+        core_2.ContentChild(core_3.DataColumnListComponent)
     ], DocumentListComponent.prototype, "columnList", void 0);
     __decorate([
         core_2.Input()

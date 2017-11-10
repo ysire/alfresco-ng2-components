@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_2 = require("@adf/core");
 var Rx_1 = require("rxjs/Rx");
 var permissions_model_1 = require("../../document-list/models/permissions.model");
 var UploadButtonComponent = (function () {
@@ -77,7 +77,7 @@ var UploadButtonComponent = (function () {
         return !this.hasPermission && this.disableWithNoPermission ? true : undefined;
     };
     UploadButtonComponent.prototype.onFilesAdded = function ($event) {
-        var files = ng2_alfresco_core_1.FileUtils.toFileArray($event.currentTarget.files);
+        var files = core_2.FileUtils.toFileArray($event.currentTarget.files);
         if (this.hasPermission) {
             this.uploadFiles(files);
         }
@@ -89,7 +89,7 @@ var UploadButtonComponent = (function () {
     };
     UploadButtonComponent.prototype.onDirectoryAdded = function ($event) {
         if (this.hasPermission) {
-            var files = ng2_alfresco_core_1.FileUtils.toFileArray($event.currentTarget.files);
+            var files = core_2.FileUtils.toFileArray($event.currentTarget.files);
             this.uploadFiles(files);
         }
         else {
@@ -123,7 +123,7 @@ var UploadButtonComponent = (function () {
      * @param file
      */
     UploadButtonComponent.prototype.createFileModel = function (file) {
-        return new ng2_alfresco_core_1.FileModel(file, {
+        return new core_2.FileModel(file, {
             newVersion: this.versioning,
             parentId: this.rootFolderId,
             path: (file.webkitRelativePath || '').replace(/\/[^\/]*$/, '')
@@ -259,7 +259,7 @@ var UploadButtonComponent = (function () {
             templateUrl: './upload-button.component.html',
             styleUrls: ['./upload-button.component.scss'],
             providers: [
-                { provide: ng2_alfresco_core_1.EXTENDIBLE_COMPONENT, useExisting: core_1.forwardRef(function () { return UploadButtonComponent_1; }) }
+                { provide: core_2.EXTENDIBLE_COMPONENT, useExisting: core_1.forwardRef(function () { return UploadButtonComponent_1; }) }
             ],
             encapsulation: core_1.ViewEncapsulation.None
         })

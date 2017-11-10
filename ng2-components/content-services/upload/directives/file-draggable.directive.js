@@ -23,7 +23,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ng2_alfresco_core_1 = require("ng2-alfresco-core");
+var core_2 = require("@adf/core");
 var FileDraggableDirective = (function () {
     function FileDraggableDirective(el, ngZone) {
         this.ngZone = ngZone;
@@ -71,14 +71,14 @@ var FileDraggableDirective = (function () {
                         }
                     }
                     else {
-                        var files = ng2_alfresco_core_1.FileUtils.toFileArray(event.dataTransfer.files);
+                        var files = core_2.FileUtils.toFileArray(event.dataTransfer.files);
                         this.filesDropped.emit(files);
                     }
                 }
             }
             else {
                 // safari or FF
-                var files = ng2_alfresco_core_1.FileUtils.toFileArray(event.dataTransfer.files);
+                var files = core_2.FileUtils.toFileArray(event.dataTransfer.files);
                 this.filesDropped.emit(files);
             }
             this.element.classList.remove(this.cssClassName);
