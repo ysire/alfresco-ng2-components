@@ -22,17 +22,19 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TRANSLATION_PROVIDER } from '@adf/core';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '../material.module';
-import { TagService } from '../services/tag.service';
 import { TagActionsComponent } from './tag-actions.component';
 import { TagListComponent } from './tag-list.component';
 import { TagNodeListComponent } from './tag-node-list.component';
+
+import { TagService } from './services/tag.service';
 
 @NgModule({
     imports: [
         CommonModule,
         MaterialModule,
         TranslateModule,
-        FormsModule, ReactiveFormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
     exports: [
         TagActionsComponent,
