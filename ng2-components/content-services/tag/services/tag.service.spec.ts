@@ -21,7 +21,7 @@ import { TagService } from './tag.service';
 
 declare let jasmine: any;
 
-describe('TagService', () => {
+xdescribe('TagService', () => {
 
     let service: TagService;
 

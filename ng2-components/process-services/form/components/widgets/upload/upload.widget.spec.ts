@@ -59,7 +59,7 @@ let fakeJpgAnswer = {
 
 declare let jasmine: any;
 
-describe('UploadWidgetComponent', () => {
+xdescribe('UploadWidgetComponent', () => {
 
     let filePngFake = new File(['fakePng'], 'file-fake.png', {type: 'image/png'});
     let filJpgFake = new File(['fakeJpg'], 'file-fake.jpg', {type: 'image/jpg'});

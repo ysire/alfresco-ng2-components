@@ -26,7 +26,7 @@ import { StorageService } from './storage.service';
 
 declare let jasmine: any;
 
-describe('RenditionsService', () => {
+xdescribe('RenditionsService', () => {
     let service: RenditionsService;
 
     beforeEach(async(() => {

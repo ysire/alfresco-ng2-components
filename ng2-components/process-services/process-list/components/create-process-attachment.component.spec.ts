@@ -24,7 +24,7 @@ import { CreateProcessAttachmentComponent } from './create-process-attachment.co
 
 declare let jasmine: any;
 
-describe('Activiti Process Create Attachment', () => {
+xdescribe('Activiti Process Create Attachment', () => {
 
     let service: ProcessContentService;
     let component: CreateProcessAttachmentComponent;

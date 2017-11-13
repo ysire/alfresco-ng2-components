@@ -22,7 +22,7 @@ import { AnalyticsService } from './analytics.service';
 
 declare let jasmine: any;
 
-describe('Activiti Analytics Service', () => {
+xdescribe('Activiti Analytics Service', () => {
 
     let service: AnalyticsService;
     let apiService: AlfrescoApiService;

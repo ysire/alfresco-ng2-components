@@ -24,7 +24,7 @@ import { MaterialModule } from '../material.module';
 
 declare let jasmine: any;
 
-describe('TagNodeList', () => {
+xdescribe('TagNodeList', () => {
 
     let dataTag = {
         'list': {

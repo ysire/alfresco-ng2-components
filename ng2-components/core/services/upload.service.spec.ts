@@ -28,7 +28,7 @@ import { UploadService } from './upload.service';
 
 declare let jasmine: any;
 
-describe('UploadService', () => {
+xdescribe('UploadService', () => {
     let service: UploadService;
 
     beforeEach(async(() => {

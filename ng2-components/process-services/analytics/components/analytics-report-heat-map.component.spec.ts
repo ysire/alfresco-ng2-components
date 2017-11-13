@@ -27,7 +27,7 @@ import { AnalyticsService } from '../services/analytics.service';
 
 declare let jasmine: any;
 
-describe('AnalyticsReportHeatMapComponent', () => {
+xdescribe('AnalyticsReportHeatMapComponent', () => {
 
     let component: AnalyticsReportHeatMapComponent;
     let fixture: ComponentFixture<AnalyticsReportHeatMapComponent>;

@@ -23,7 +23,7 @@ import { RatingService } from './services/rating.service';
 
 declare let jasmine: any;
 
-describe('Rating component', () => {
+xdescribe('Rating component', () => {
 
     let component: any;
     let fixture: ComponentFixture<RatingComponent>;

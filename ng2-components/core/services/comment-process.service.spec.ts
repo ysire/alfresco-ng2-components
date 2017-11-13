@@ -26,7 +26,7 @@ import { LogService } from './log.service';
 import { StorageService } from './storage.service';
 
 declare let jasmine: any;
-describe('Comment ProcessService Service', () => {
+xdescribe('Comment ProcessService Service', () => {
 
     let service: CommentProcessService;
     let alfrescoApi: any;

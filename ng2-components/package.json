@@ -24,6 +24,8 @@
     "pretest": "",
     "posttest": "",
     "publish:prod": "",
+    "jtest": "jest",
+    "test:watch": "jest --watch",
     "webpack": "node node_modules/webpack/bin/webpack.js"
   },
   "main": "./index.js",
@@ -74,6 +76,7 @@
   "devDependencies": {
     "@types/hammerjs": "2.0.35",
     "@types/jasmine": "^2.5.35",
+    "@types/jest": "^21.1.6",
     "@types/node": "6.0.90",
     "adf-tslint-rules": "0.0.4",
     "angular2-template-loader": "0.6.2",
@@ -93,6 +96,8 @@
     "istanbul-instrumenter-loader": "0.2.0",
     "jasmine-ajax": "3.2.0",
     "jasmine-core": "2.4.1",
+    "jest": "^21.2.1",
+    "jest-preset-angular": "^4.0.1",
     "karma": "0.13.22",
     "karma-chrome-launcher": "2.2.0",
     "karma-coverage": "1.1.1",
@@ -132,6 +137,22 @@
     "webpack-dev-server": "2.9.4",
     "webpack-merge": "2.6.1",
     "wsrv": "0.1.7"
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupTestFrameworkScriptFile": "<rootDir>/setupJest.ts",
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "./tsconfig.spec.json"
+      },
+      "__TRANSFORM_HTML__": true
+    },
+    "moduleNameMapper": {
+      "@alfresco/core": "<rootDir>/core",
+      "@alfresco/content-service": "<rootDir>/content-service",
+      "@alfresco/process-services": "<rootDir>/process-services"
+    },
+    "testRegex": "(/content/.*|\\.(test|spec))\\.(ts)$"
   },
   "license": "Apache-2.0",
   "bundlesize": [

@@ -32,7 +32,7 @@ let componentJson1 = ' {"TEST": "This is a test", "TEST2": "This is another test
 
 declare let jasmine: any;
 
-describe('TranslateLoader', () => {
+xdescribe('TranslateLoader', () => {
     let injector: Injector;
     let translationService: TranslationService;
     let customLoader: TranslateLoaderService;

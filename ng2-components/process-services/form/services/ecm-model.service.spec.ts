@@ -22,7 +22,7 @@ import { EcmModelService } from './ecm-model.service';
 
 declare let jasmine: any;
 
-describe('EcmModelService', () => {
+xdescribe('EcmModelService', () => {
 
     let service: EcmModelService;
 

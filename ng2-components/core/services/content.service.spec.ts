@@ -32,7 +32,7 @@ import { UserPreferencesService } from './user-preferences.service';
 
 declare let jasmine: any;
 
-describe('ContentService', () => {
+xdescribe('ContentService', () => {
 
     let contentService: ContentService;
     let authService: AuthenticationService;

@@ -30,7 +30,7 @@ import { UserPreferencesService } from './user-preferences.service';
 
 declare let jasmine: any;
 
-describe('AuthenticationService', () => {
+xdescribe('AuthenticationService', () => {
     let apiService: AlfrescoApiService;
     let authService: AuthenticationService;
     let settingsService: SettingsService;

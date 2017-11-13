@@ -26,7 +26,7 @@ import { AnalyticsService } from '../services/analytics.service';
 
 declare let jasmine: any;
 
-describe('AnalyticsReportListComponent', () => {
+xdescribe('AnalyticsReportListComponent', () => {
 
     let reportList = [
         { 'id': 2002, 'name': 'Fake Test Process definition heat map' },

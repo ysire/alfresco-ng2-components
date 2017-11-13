@@ -50,7 +50,7 @@ let fakePeopleResponse = {
     }, { 'id': 2004, 'firstName': 'Peo03', 'lastName': 'Ple03', 'email': 'people03' }]
 };
 
-describe('Form service', () => {
+xdescribe('Form service', () => {
 
     let service: FormService;
     let apiService: AlfrescoApiService;

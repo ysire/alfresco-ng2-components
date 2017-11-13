@@ -29,7 +29,7 @@ import { DateRangeWidgetComponent } from './widgets/date-range/date-range.widget
 
 declare let jasmine: any;
 
-describe('AnalyticsReportParametersComponent', () => {
+xdescribe('AnalyticsReportParametersComponent', () => {
 
     let component: AnalyticsReportParametersComponent;
     let fixture: ComponentFixture<AnalyticsReportParametersComponent>;

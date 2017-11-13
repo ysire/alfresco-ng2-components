@@ -40,7 +40,7 @@ import { DocumentListComponent } from './document-list.component';
 
 declare let jasmine: any;
 
-describe('DocumentList', () => {
+xdescribe('DocumentList', () => {
 
     let documentList: DocumentListComponent;
     let documentListService: DocumentListService;

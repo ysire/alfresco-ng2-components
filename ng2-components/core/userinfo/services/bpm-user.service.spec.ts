@@ -22,7 +22,7 @@ import { BpmUserService } from '../services/bpm-user.service';
 
 declare let jasmine: any;
 
-describe('Bpm user service', () => {
+xdescribe('Bpm user service', () => {
 
     let service: BpmUserService;
 

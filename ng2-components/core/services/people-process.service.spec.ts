@@ -42,7 +42,7 @@ const secondInvolvedUser: UserProcessModel = new UserProcessModel({
 
 const fakeInvolveUserList: UserProcessModel[] = [firstInvolvedUser, secondInvolvedUser];
 
-describe('PeopleProcessService', () => {
+xdescribe('PeopleProcessService', () => {
 
     let service: PeopleProcessService;
 

@@ -23,7 +23,7 @@ import { WebscriptComponent } from './webscript.component';
 
 declare let jasmine: any;
 
-describe('WebscriptComponent', () => {
+xdescribe('WebscriptComponent', () => {
 
     let component: WebscriptComponent;
     let fixture: ComponentFixture<WebscriptComponent>;

@@ -59,7 +59,7 @@ let sitesList = {
     }
 };
 
-describe('DropdownSitesComponent', () => {
+xdescribe('DropdownSitesComponent', () => {
 
     let component: any;
     let fixture: ComponentFixture<DropdownSitesComponent>;

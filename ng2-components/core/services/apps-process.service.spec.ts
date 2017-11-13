@@ -25,7 +25,7 @@ import { LogService } from './log.service';
 import { StorageService } from './storage.service';
 
 declare let jasmine: any;
-describe('Apps Service', () => {
+xdescribe('Apps Service', () => {
 
     let service: AppsProcessService;
 

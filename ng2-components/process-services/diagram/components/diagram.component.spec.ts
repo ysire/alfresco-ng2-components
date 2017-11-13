@@ -35,7 +35,7 @@ import { RAPHAEL_DIRECTIVES, RAPHAEL_PROVIDERS } from './raphael/index';
 
 declare let jasmine: any;
 
-describe('Test ng2-activiti-diagrams ', () => {
+xdescribe('Test ng2-activiti-diagrams ', () => {
 
     let component: any;
     let fixture: ComponentFixture<DiagramComponent>;

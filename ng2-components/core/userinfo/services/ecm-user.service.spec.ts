@@ -22,7 +22,7 @@ import { EcmUserService } from '../services/ecm-user.service';
 
 declare let jasmine: any;
 
-describe('EcmUserService', () => {
+xdescribe('EcmUserService', () => {
 
     let service: EcmUserService;
     let authService: AuthenticationService;

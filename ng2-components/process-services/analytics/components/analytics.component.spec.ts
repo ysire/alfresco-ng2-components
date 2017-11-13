@@ -44,7 +44,7 @@ export const ANALYTICS_PROVIDERS: any[] = [
 
 declare let jasmine: any;
 
-describe('AnalyticsComponent', () => {
+xdescribe('AnalyticsComponent', () => {
 
     let component: any;
     let fixture: ComponentFixture<AnalyticsComponent>;
