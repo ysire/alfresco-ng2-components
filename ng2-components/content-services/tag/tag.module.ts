@@ -16,16 +16,14 @@
  */
 
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { TRANSLATION_PROVIDER } from '@alfresco/core';
-import { NgModule } from '@angular/core';
 import { MaterialModule } from '../material.module';
 import { TagActionsComponent } from './tag-actions.component';
 import { TagListComponent } from './tag-list.component';
 import { TagNodeListComponent } from './tag-node-list.component';
-
 import { TagService } from './services/tag.service';
 
 @NgModule({
@@ -47,15 +45,7 @@ import { TagService } from './services/tag.service';
         TagNodeListComponent
     ],
     providers: [
-        TagService,
-        {
-            provide: TRANSLATION_PROVIDER,
-            multi: true,
-            useValue: {
-                name: 'ng2-alfresco-tag',
-                source: 'assets/ng2-alfresco-tag'
-            }
-        }
+        TagService
     ]
 })
 export class TagModule {}
