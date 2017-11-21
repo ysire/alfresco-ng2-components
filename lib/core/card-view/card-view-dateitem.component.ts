@@ -16,19 +16,20 @@
  */
 
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepicker } from '@angular/material';
-import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
-import * as moment from 'moment';
-import { Moment } from 'moment';
+import moment from 'moment-es6';
 import { CardViewDateItemModel } from '../models/card-view-dateitem.model';
 import { CardViewUpdateService } from '../services/card-view-update.service';
 import { UserPreferencesService } from '../services/user-preferences.service';
-import { MOMENT_DATE_FORMATS, MomentDateAdapter } from '../utils/momentDateAdapter';
+import { MOMENT_DATE_FORMATS } from '../utils/momentDateAdapter';
 
 @Component({
     providers: [
-        {provide: DateAdapter, useClass: MomentDateAdapter},
-        {provide: MAT_DATE_FORMATS, useValue: MOMENT_DATE_FORMATS}],
+        {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+        {provide: MAT_DATE_FORMATS, useValue: MOMENT_DATE_FORMATS}
+    ],
     selector: 'adf-card-view-dateitem',
     templateUrl: './card-view-dateitem.component.html',
     styleUrls: ['./card-view-dateitem.component.scss']
@@ -46,11 +47,11 @@ export class CardViewDateItemComponent implements OnInit {
     @ViewChild(MatDatepicker)
     public datepicker: MatDatepicker<any>;
 
-    valueDate: Moment;
+    valueDate: any;
 
     constructor(
         private cardViewUpdateService: CardViewUpdateService,
-        private dateAdapter: DateAdapter<Moment>,
+        private dateAdapter: DateAdapter<any>,
         private preferences: UserPreferencesService) {
     }
 
@@ -58,8 +59,6 @@ export class CardViewDateItemComponent implements OnInit {
         this.preferences.locale$.subscribe( (locale) => {
             this.dateAdapter.setLocale(locale);
         });
-        let momentDateAdapter = <MomentDateAdapter> this.dateAdapter;
-        momentDateAdapter.overrideDisplyaFormat = this.SHOW_FORMAT;
 
         if (this.property.value) {
             this.valueDate = moment(this.property.value, this.SHOW_FORMAT);

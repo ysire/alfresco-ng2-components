@@ -37,10 +37,9 @@ import {
     PersonEntry,
     SitePaging
 } from 'alfresco-js-api';
-import { Observable, Subject } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 import { presetsDefaultModel } from '../models/preset.model';
-import { ImageResolver } from './../data/image-resolver.model';
-import { RowFilter } from './../data/row-filter.model';
 import { ShareDataRow } from './../data/share-data-row.model';
 import { ShareDataTableAdapter } from './../data/share-datatable-adapter';
 
@@ -138,10 +137,10 @@ export class DocumentListComponent implements OnInit, OnChanges, AfterContentIni
     pagination: Pagination;
 
     @Input()
-    rowFilter: RowFilter | null = null;
+    rowFilter: any | null = null;
 
     @Input()
-    imageResolver: ImageResolver | null = null;
+    imageResolver: any | null = null;
 
     // The identifier of a node. You can also use one of these well-known aliases: -my- | -shared- | -root-
     @Input()

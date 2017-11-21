@@ -17,14 +17,14 @@
 
 import { Location } from '@angular/common';
 import { SpyLocation } from '@angular/common/testing';
-import { Component, DebugElement } from '@angular/core';
+import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AlfrescoApiService, RenditionsService } from '../../services';
 
 import { MaterialModule } from './../../material.module';
-import { ToolbarModule } from '../../toolbar';
+import { ToolbarModule } from '../../toolbar/toolbar.module';
 
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import { EventMock } from '../../mock/event.mock';
 import { RenderingQueueServices } from '../services/rendering-queue.services';
 import { ImgViewerComponent } from './imgViewer.component';
@@ -37,6 +37,7 @@ import { ViewerOpenWithComponent } from './viewer-open-with.component';
 import { ViewerSidebarComponent } from './viewer-sidebar.component';
 import { ViewerToolbarComponent } from './viewer-toolbar.component';
 import { ViewerComponent } from './viewer.component';
+import 'rxjs/add/observable/throw';
 
 declare let jasmine: any;
 
@@ -114,7 +115,6 @@ describe('ViewerComponent', () => {
 
     let component: ViewerComponent;
     let fixture: ComponentFixture<ViewerComponent>;
-    let debug: DebugElement;
     let alfrescoApiService: AlfrescoApiService;
     let element: HTMLElement;
 
@@ -156,7 +156,6 @@ describe('ViewerComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(ViewerComponent);
 
-        debug = fixture.debugElement;
         element = fixture.nativeElement;
         component = fixture.componentInstance;
 

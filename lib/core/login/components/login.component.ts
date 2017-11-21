@@ -18,8 +18,12 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService, LogService,
-    SettingsService, TranslationService, UserPreferencesService } from '../../services';
+
+import { AuthenticationService } from '../../services/authentication.service';
+import { LogService } from '../../services/log.service';
+import { SettingsService } from '../../services/settings.service';
+import { TranslationService } from '../../services/translation.service';
+import { UserPreferencesService } from '../../services/user-preferences.service';
 
 import { LoginErrorEvent } from '../models/login-error.event';
 import { LoginSubmitEvent } from '../models/login-submit.event';

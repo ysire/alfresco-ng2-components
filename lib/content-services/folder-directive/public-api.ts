@@ -15,16 +15,5 @@
  * limitations under the License.
  */
 
- /* tslint:disable:component-selector  */
-
-import { DiagramBoundaryEventComponent } from './diagram-boundary-event.component';
-import { DiagramThrowEventComponent } from './diagram-throw-event.component';
-
-// primitives
-export * from './diagram-boundary-event.component';
-export * from './diagram-throw-event.component';
-
-export const DIAGRAM_BOUNDARY_EVENTS_DIRECTIVES: any[] = [
-    DiagramBoundaryEventComponent,
-    DiagramThrowEventComponent
-];
+export * from './folder-create.directive';
+export * from './folder-edit.directive';

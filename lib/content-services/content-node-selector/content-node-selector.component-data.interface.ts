@@ -15,16 +15,13 @@
  * limitations under the License.
  */
 
- /* tslint:disable:component-selector  */
+import { EventEmitter } from '@angular/core';
+import { MinimalNodeEntryEntity } from 'alfresco-js-api';
 
-import { DiagramEventSubprocessComponent } from './diagram-event-subprocess.component';
-import { DiagramSubprocessComponent } from './diagram-subprocess.component';
-
-// primitives
-export * from './diagram-subprocess.component';
-export * from './diagram-event-subprocess.component';
-
-export const DIAGRAM_STRUCTURAL_DIRECTIVES: any[] = [
-    DiagramSubprocessComponent,
-    DiagramEventSubprocessComponent
-];
+export interface ContentNodeSelectorComponentData {
+    title: string;
+    currentFolderId?: string;
+    rowFilter?: any;
+    imageResolver?: any;
+    select: EventEmitter<MinimalNodeEntryEntity[]>;
+}

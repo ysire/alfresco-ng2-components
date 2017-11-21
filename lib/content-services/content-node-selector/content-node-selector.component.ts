@@ -20,18 +20,9 @@ import { ContentService, HighlightDirective, SiteModel } from '@alfresco/adf-cor
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { MinimalNodeEntryEntity, NodePaging, Pagination } from 'alfresco-js-api';
 import { DocumentListComponent, PaginationStrategy  } from '../document-list/components/document-list.component';
-import { RowFilter } from '../document-list/data/row-filter.model';
-import { ImageResolver } from '../document-list/data/image-resolver.model';
 
+import { ContentNodeSelectorComponentData } from './content-node-selector.component-data.interface';
 import { ContentNodeSelectorService } from './content-node-selector.service';
-
-export interface ContentNodeSelectorComponentData {
-    title: string;
-    currentFolderId?: string;
-    rowFilter?: RowFilter;
-    imageResolver?: ImageResolver;
-    select: EventEmitter<MinimalNodeEntryEntity[]>;
-}
 
 @Component({
     selector: 'adf-content-node-selector',
@@ -60,10 +51,10 @@ export class ContentNodeSelectorComponent implements OnInit {
     currentFolderId: string | null = null;
 
     @Input()
-    rowFilter: RowFilter = null;
+    rowFilter: any = null;
 
     @Input()
-    imageResolver: ImageResolver = null;
+    imageResolver: any = null;
 
     @Input()
     pageSize: number = 10;

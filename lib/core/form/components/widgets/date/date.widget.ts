@@ -17,20 +17,21 @@
 
 /* tslint:disable:component-selector  */
 
-import { UserPreferencesService } from '../../../../services';
-import { MOMENT_DATE_FORMATS, MomentDateAdapter } from '../../../../utils';
+import { UserPreferencesService } from '../../../../services/user-preferences.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
-import * as moment from 'moment';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, } from '@angular/material/core';
+import moment from 'moment-es6';
 import { Moment } from 'moment';
 import { FormService } from './../../../services/form.service';
 import { baseHost, WidgetComponent } from './../widget.component';
+import { MOMENT_DATE_FORMATS } from '../../../../utils/momentDateAdapter';
 
 @Component({
     selector: 'date-widget',
     providers: [
-        { provide: DateAdapter, useClass: MomentDateAdapter },
-        { provide: MAT_DATE_FORMATS, useValue: MOMENT_DATE_FORMATS }],
+        {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+        {provide: MAT_DATE_FORMATS, useValue: MOMENT_DATE_FORMATS}],
     templateUrl: './date.widget.html',
     styleUrls: ['./date.widget.scss'],
     host: baseHost,
@@ -53,8 +54,6 @@ export class DateWidgetComponent extends WidgetComponent implements OnInit {
         this.preferences.locale$.subscribe((locale) => {
             this.dateAdapter.setLocale(locale);
         });
-        let momentDateAdapter = <MomentDateAdapter> this.dateAdapter;
-        momentDateAdapter.overrideDisplyaFormat = this.field.dateDisplayFormat;
 
         if (this.field) {
             if (this.field.minValue) {

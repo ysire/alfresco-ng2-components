@@ -23,9 +23,6 @@ import { CoreModule, TRANSLATION_PROVIDER } from '@alfresco/adf-core';
 
 import { MaterialModule } from './material.module';
 
-import { AnalyticsProcessModule } from './analytics-process';
-import { DiagramsModule } from './diagram';
-
 @NgModule({
     imports: [
         CoreModule,
@@ -33,9 +30,7 @@ import { DiagramsModule } from './diagram';
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
-        MaterialModule,
-        AnalyticsProcessModule,
-        DiagramsModule
+        MaterialModule
     ],
     providers: [
         {
@@ -53,9 +48,7 @@ import { DiagramsModule } from './diagram';
         FormsModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
-        MaterialModule,
-        AnalyticsProcessModule,
-        DiagramsModule
+        MaterialModule
     ]
 })
 export class InsightsModule {

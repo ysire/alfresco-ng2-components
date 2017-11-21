@@ -15,6 +15,25 @@
  * limitations under the License.
  */
 
- /* tslint:disable:component-selector  */
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MaterialModule } from '../material.module';
 
-export * from './diagram-tooltip.component';
+import { FolderCreateDirective } from './folder-create.directive';
+import { FolderEditDirective } from './folder-edit.directive';
+
+@NgModule({
+    imports: [
+        CommonModule,
+        MaterialModule
+    ],
+    declarations: [
+        FolderCreateDirective,
+        FolderEditDirective
+    ],
+    exports: [
+        FolderCreateDirective,
+        FolderEditDirective
+    ]
+})
+export class FolderDirectiveModule {}

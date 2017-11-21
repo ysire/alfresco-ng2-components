@@ -35,7 +35,6 @@ describe('DataTable', () => {
     let fixture: ComponentFixture<DataTableComponent>;
     let dataTable: DataTableComponent;
     let element: any;
-    let eventMock: any;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -51,13 +50,6 @@ describe('DataTable', () => {
         fixture = TestBed.createComponent(DataTableComponent);
         dataTable = fixture.componentInstance;
         element = fixture.debugElement.nativeElement;
-    });
-
-    beforeEach(() => {
-        eventMock = {
-            preventDefault: function () {
-            }
-        };
     });
 
     it('should change the rows on changing of the data', () => {

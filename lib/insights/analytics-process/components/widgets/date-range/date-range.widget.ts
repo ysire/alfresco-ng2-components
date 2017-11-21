@@ -15,19 +15,20 @@
  * limitations under the License.
  */
 
-import { MOMENT_DATE_FORMATS, MomentDateAdapter, UserPreferencesService } from '@alfresco/adf-core';
+import { UserPreferencesService } from '@alfresco/adf-core';
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
-import * as moment from 'moment';
-import { Moment } from 'moment';
+import moment from 'moment-es6';
+import { MOMENT_DATE_FORMATS } from '@alfresco/adf-core';
 
 @Component({
     selector: 'adf-date-range-widget',
     templateUrl: './date-range.widget.html',
     providers: [
-        {provide: DateAdapter, useClass: MomentDateAdapter},
-        {provide: MAT_DATE_FORMATS, useValue: MOMENT_DATE_FORMATS}],
+        { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+        { provide: MAT_DATE_FORMATS, useValue: MOMENT_DATE_FORMATS }],
     styleUrls: ['./date-range.widget.scss'],
     encapsulation: ViewEncapsulation.None
 })
@@ -45,13 +46,13 @@ export class DateRangeWidgetComponent implements OnInit {
     @Output()
     dateRangeChanged: EventEmitter<any> = new EventEmitter<any>();
 
-    minDate: Moment;
-    maxDate: Moment;
-    startDatePicker: Moment = moment();
-    endDatePicker: Moment = moment();
+    minDate: any;
+    maxDate: any;
+    startDatePicker: any = moment();
+    endDatePicker: any = moment();
 
     constructor(
-        private dateAdapter: DateAdapter<Moment>,
+        private dateAdapter: DateAdapter<any>,
         private preferences: UserPreferencesService) {
     }
 
@@ -59,8 +60,6 @@ export class DateRangeWidgetComponent implements OnInit {
         this.preferences.locale$.subscribe( (locale) => {
             this.dateAdapter.setLocale(locale);
         });
-        let momentDateAdapter = <MomentDateAdapter> this.dateAdapter;
-        momentDateAdapter.overrideDisplyaFormat = this.SHOW_FORMAT;
 
         if (this.field) {
             if (this.field.value && this.field.value.startDate) {

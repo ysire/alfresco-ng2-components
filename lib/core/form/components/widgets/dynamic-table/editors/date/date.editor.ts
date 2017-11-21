@@ -17,22 +17,24 @@
 
 /* tslint:disable:component-selector  */
 
-import { UserPreferencesService } from '../../../../../../services';
-import { MOMENT_DATE_FORMATS, MomentDateAdapter } from '../../../../../../utils';
+import { UserPreferencesService } from '../../../../../../services/user-preferences.service';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { Component, Input, OnInit } from '@angular/core';
-import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
-import * as moment from 'moment';
+import moment from 'moment-es6';
 import { Moment } from 'moment';
 import { DynamicTableColumn } from './../../dynamic-table-column.model';
 import { DynamicTableRow } from './../../dynamic-table-row.model';
 import { DynamicTableModel } from './../../dynamic-table.widget.model';
+import { MOMENT_DATE_FORMATS } from '@alfresco/adf-core';
 
 @Component({
     selector: 'adf-date-editor',
     templateUrl: './date.editor.html',
     providers: [
-        {provide: DateAdapter, useClass: MomentDateAdapter},
-        {provide: MAT_DATE_FORMATS, useValue: MOMENT_DATE_FORMATS}],
+        {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+        {provide: MAT_DATE_FORMATS, useValue: MOMENT_DATE_FORMATS}
+    ],
     styleUrls: ['./date.editor.scss']
 })
 export class DateEditorComponent implements OnInit {
@@ -61,8 +63,6 @@ export class DateEditorComponent implements OnInit {
         this.preferences.locale$.subscribe((locale) => {
             this.dateAdapter.setLocale(locale);
         });
-        let momentDateAdapter = <MomentDateAdapter> this.dateAdapter;
-        momentDateAdapter.overrideDisplyaFormat = this.DATE_FORMAT;
 
         this.value = moment(this.table.getCellValue(this.row, this.column), this.DATE_FORMAT);
     }
