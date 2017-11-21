@@ -83,7 +83,6 @@ class CustomInfoDrawerComponent {
 
 describe('Custom InfoDrawer', () => {
     let fixture: ComponentFixture<CustomInfoDrawerComponent>;
-    let component: CustomInfoDrawerComponent;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -100,7 +99,6 @@ describe('Custom InfoDrawer', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(CustomInfoDrawerComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
