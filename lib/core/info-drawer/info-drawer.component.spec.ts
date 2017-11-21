@@ -42,6 +42,7 @@ describe('InfoDrawerComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(InfoDrawerComponent);
         element = fixture.nativeElement;
+        component = fixture.componentInstance;
     });
 
     it('should create instance of InfoDrawerComponent', () => {

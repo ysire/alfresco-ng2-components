@@ -15,9 +15,7 @@
  * limitations under the License.
  */
 
-import { DateAdapter, MatDateFormats } from '@angular/material';
-import { isMoment, Moment } from 'moment';
-import * as moment from 'moment';
+import { MatDateFormats } from '@angular/material';
 
 export const MOMENT_DATE_FORMATS: MatDateFormats = {
     parse: {
