@@ -8,7 +8,7 @@
 # which affects the common case of having `tsconfig.json` in the WORKSPACE directory.
 #
 # Instead, you should run `bazel info bazel-bin` to find out where the outputs went.
-build --symlink_prefix=/
+build --symlink_prefix=dist/
 
 # Another good choice is to create a dist/ directory. Then you can use
 # build --symlink_prefix=dist/

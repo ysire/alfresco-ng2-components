@@ -1,16 +1,26 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "declaration": true,
     "stripInternal": false,
     "experimentalDecorators": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "importHelpers": true,
+
+    "emitDecoratorMetadata": true,
+    "noLib": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noImplicitUseStrict": false,
+    "noFallthroughCasesInSwitch": true,
+    "removeComments": true,
+
     "newLine": "lf",
     "module": "es2015",
     "moduleResolution": "node",
-    "outDir": "../../dist/packages/core",
+    "outDir": "./dist",
     "rootDir": ".",
     "sourceMap": true,
     "inlineSources": true,

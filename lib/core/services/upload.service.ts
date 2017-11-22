@@ -19,7 +19,12 @@ import { EventEmitter, Injectable } from '@angular/core';
 import * as minimatch from 'minimatch';
 import { Subject } from 'rxjs/Subject';
 import { AppConfigService } from '../app-config/app-config.service';
-import { FileUploadCompleteEvent, FileUploadDeleteEvent, FileUploadErrorEvent, FileUploadEvent } from '../events/file.event';
+import {
+    FileUploadCompleteEvent,
+    FileUploadDeleteEvent,
+    FileUploadErrorEvent,
+    FileUploadEvent
+} from '../events/file.event';
 import { FileModel, FileUploadProgress, FileUploadStatus } from '../models/file.model';
 import { AlfrescoApiService } from './alfresco-api.service';
 
@@ -87,7 +92,7 @@ export class UploadService {
     private filterElement(file: FileModel) {
         let isAllowed = true;
         if (this.excludedFileList) {
-            isAllowed = this.excludedFileList.filter(expr => minimatch(file.name, expr)).length === 0;
+            isAllowed = this.excludedFileList.filter((expr: string) => minimatch(file.name, expr)).length === 0;
         }
         return isAllowed;
     }
@@ -147,8 +152,8 @@ export class UploadService {
 
     getUploadPromise(file: FileModel) {
         let opts: any = {
-                renditions: 'doclib'
-            };
+            renditions: 'doclib'
+        };
 
         if (file.options.newVersion === true) {
             opts.overwrite = true;
@@ -172,21 +177,21 @@ export class UploadService {
         promise.on('progress', (progress: FileUploadProgress) => {
             this.onUploadProgress(file, progress);
         })
-        .on('abort', () => {
-            this.onUploadAborted(file);
-            emitter.emit({ value: 'File aborted' });
-        })
-        .on('error', err => {
-            this.onUploadError(file, err);
-            emitter.emit({ value: 'Error file uploaded' });
-        })
-        .on('success', data => {
-            this.onUploadComplete(file, data);
-            emitter.emit({ value: data });
-        })
-        .catch(err => {
-            throw err;
-        });
+            .on('abort', () => {
+                this.onUploadAborted(file);
+                emitter.emit({ value: 'File aborted' });
+            })
+            .on('error', err => {
+                this.onUploadError(file, err);
+                emitter.emit({ value: 'Error file uploaded' });
+            })
+            .on('success', data => {
+                this.onUploadComplete(file, data);
+                emitter.emit({ value: data });
+            })
+            .catch(err => {
+                throw err;
+            });
 
         return promise;
     }

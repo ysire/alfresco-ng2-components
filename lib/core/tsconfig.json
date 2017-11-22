@@ -16,7 +16,7 @@
     "noFallthroughCasesInSwitch": true,
     "removeComments": true,
     "declaration": true,
-    "outDir": "./",
+    "outDir": "./dist",
     "baseUrl" :  "./",
     "allowSyntheticDefaultImports": true,
     "paths": {
