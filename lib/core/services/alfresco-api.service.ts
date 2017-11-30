@@ -77,7 +77,7 @@ export class AlfrescoApiService {
     }
 
     reset() {
-        this.alfrescoApi = <AlfrescoApi> new alfrescoApi({
+        this.alfrescoApi = <AlfrescoApi> new alfrescoApi.default.prototype.constructor({
             provider: this.storage.getItem('AUTH_TYPE'),
             ticketEcm: this.storage.getItem('ticket-ECM'),
             ticketBpm: this.storage.getItem('ticket-BPM'),

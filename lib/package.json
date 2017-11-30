@@ -4,6 +4,8 @@
   "version": "2.0.0",
   "author": "Alfresco Software, Ltd.",
   "scripts": {
+    "jtest": "jest --no-cache --bail",
+    "jtest:watch": "jest --watch --runInBand --no-cache",
     "clean": "rimraf node_modules",
     "clean-lock": "rimraf package-lock.json",
     "rimraf": "rimraf",
@@ -81,8 +83,10 @@
     "zone.js": "0.8.14"
   },
   "devDependencies": {
+    "@progress/kendo-angular-jest-preset": "^1.1.0",
     "@types/hammerjs": "2.0.35",
     "@types/jasmine": "^2.5.35",
+    "@types/jest": "^21.1.8",
     "@types/node": "6.0.90",
     "adf-tslint-rules": "0.0.4",
     "angular2-template-loader": "0.6.2",
@@ -101,8 +105,10 @@
     "html-loader": "0.4.4",
     "html-webpack-plugin": "2.28.0",
     "istanbul-instrumenter-loader": "0.2.0",
-    "jasmine-ajax": "3.2.0",
+    "jasmine-ajax": "3.3.1",
     "jasmine-core": "2.4.1",
+    "jest": "^21.2.1",
+    "jest-preset-angular": "^4.0.1",
     "karma": "0.13.22",
     "karma-chrome-launcher": "2.2.0",
     "karma-coverage": "1.1.1",
@@ -127,6 +133,7 @@
     "sass-loader": "6.0.5",
     "script-loader": "0.7.0",
     "scss-bundle": "^2.1.0",
+    "sinon": "^4.1.2",
     "source-map-loader": "0.1.6",
     "style-loader": "0.13.1",
     "systemjs-builder": "0.15.34",
@@ -143,6 +150,41 @@
     "webpack-dev-server": "2.9.4",
     "webpack-merge": "2.6.1",
     "wsrv": "0.1.7"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      },
+      "__TRANSFORM_HTML__": true
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/setupJest.ts",
+    "transform": {
+      "^.+\\.(ts|js|html)$": "./preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "html",
+      "json"
+    ],
+    "mapCoverage": true,
+    "moduleNameMapper": {
+      "^src/(.*)": "<rootDir>/src/$1",
+      "^app/(.*)": "<rootDir>/src/app/$1",
+      "^assets/(.*)": "<rootDir>/src/assets/$1",
+      "^environments/(.*)": "<rootDir>/environments/$1",
+      "@alfresco/adf-core": "<rootDir>/core",
+      "@alfresco/adf-insight": "<rootDir>/insights",
+      "@alfresco/adf-content-service": "<rootDir>/content-service",
+      "@alfresco/adf-process-services": "<rootDir>/process-services",
+      "alfresco-js-api": "<rootDir>/node_modules/alfresco-js-api"
+    },
+    "testEnvironment": "@progress/kendo-angular-jest-preset/src/environment.js",
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx)"
+    ]
   },
   "license": "Apache-2.0",
   "bundlesize": [
