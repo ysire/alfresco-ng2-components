@@ -10,7 +10,14 @@ global.getJasmineRequireObj = () => {
     return jasmineRequire;
 };
 
+let pdfjsLib = require('pdfjs-dist');
+pdfjsLib.PDFJS.workerSrc = './node_modules/pdfjs-dist/build/pdf.worker.js';
+require('pdfjs-dist/web/pdf_viewer.js');
+
 global.CSS = undefined;
+global.scrollTo = jest.fn()
+
+// global.PDFJS = jest.fn()
 
 //require('jasmine-core/lib/jasmine-core/jasmine-html');
 //require('jasmine-core/lib/jasmine-core/boot');
@@ -54,6 +61,8 @@ const AppConfigModule = require('./core/app-config/app-config.module').AppConfig
 const LogService = require('./core/services/log.service').LogService;
 const TranslateLoaderService = require('./core/services/translate-loader.service').TranslateLoaderService;
 const ServicesModule = require('./core/services/service.module').ServiceModule;
+const DataTableModule = require('./core/datatable/datatable.module').DataTableModule;
+const DataColumnModule = require('./core/data-column/data-column.module').DataColumnModule;
 
 const AppConfigService = require('@alfresco/adf-core').AppConfigService;
 const AppConfigServiceMock = require('@alfresco/adf-core').AppConfigServiceMock;
@@ -82,7 +91,9 @@ beforeEach(() => {
             NoopAnimationsModule,
             FormsModule,
             ReactiveFormsModule,
-            HttpClientModule
+            HttpClientModule,
+            DataTableModule,
+            DataColumnModule
         ],
         providers: [
             {provide: AppConfigService, useClass: AppConfigServiceMock}
