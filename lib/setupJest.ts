@@ -4,12 +4,6 @@ require('core-js/es6');
 require('core-js/es6/reflect');
 require('core-js/es7/reflect');
 
-var jasmineRequire = require('jasmine-core/lib/jasmine-core');
-
-global.getJasmineRequireObj = () => {
-    return jasmineRequire;
-};
-
 let pdfjsLib = require('pdfjs-dist');
 pdfjsLib.PDFJS.workerSrc = './node_modules/pdfjs-dist/build/pdf.worker.js';
 require('pdfjs-dist/web/pdf_viewer.js');
@@ -28,7 +22,6 @@ require('zone.js/dist/sync-test');
 // require('zone.js/dist/jasmine-patch');
 require('zone.js/dist/async-test');
 require('zone.js/dist/fake-async-test');
-require('jasmine-ajax');
 require('jest-zone-patch');
 require('./global-mocks');
 require('./matchers');

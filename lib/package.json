@@ -5,6 +5,7 @@
   "author": "Alfresco Software, Ltd.",
   "scripts": {
     "jtest": "jest --no-cache --bail",
+    "jest": "jest",
     "jtest:watch": "jest --watch --runInBand --no-cache",
     "clean": "rimraf node_modules",
     "clean-lock": "rimraf package-lock.json",
@@ -91,6 +92,8 @@
     "adf-tslint-rules": "0.0.4",
     "angular2-template-loader": "0.6.2",
     "autoprefixer": "6.5.4",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
     "bundlesize": "^0.15.3",
     "codelyzer": "4.0.0",
     "copy-webpack-plugin": "4.0.1",
@@ -127,6 +130,7 @@
     "node-sass": "4.5.3",
     "null-loader": "0.1.1",
     "raw-loader": "0.5.1",
+    "regenerator-runtime": "^0.11.0",
     "remap-istanbul": "0.6.3",
     "rimraf": "^2.6.2",
     "run-sequence": "1.2.2",
@@ -181,6 +185,12 @@
       "@alfresco/adf-process-services": "<rootDir>/process-services",
       "alfresco-js-api": "<rootDir>/node_modules/alfresco-js-api"
     },
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/alfresco-js-api",
+      "<rootDir>/node_modules/superagent",
+      "<rootDir>/core",
+      "<rootDir>/content-services"
+    ],
     "testEnvironment": "@progress/kendo-angular-jest-preset/src/environment.js",
     "transformIgnorePatterns": [
       "node_modules/(?!@ngrx)"
