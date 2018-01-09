@@ -155,6 +155,10 @@ export const appRoutes: Routes = [
                 path: 'overlay-viewer',
                 component: OverlayViewerComponent,
                 canActivate: [AuthGuardEcm]
+            },
+            {
+                path: 'datatable-lazy',
+                loadChildren: 'app/components/lazy-loading/lazy-loading.module#LazyLoadingModule'
             }
         ]
     }
