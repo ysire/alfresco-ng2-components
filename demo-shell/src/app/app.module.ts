@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ChartsModule } from 'ng2-charts';
-import { HttpClientModule } from '@angular/common/http';
-import { TranslateService } from '@ngx-translate/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppConfigService, TRANSLATION_PROVIDER } from '@alfresco/adf-core';
+import { AppConfigService, CoreModule, TRANSLATION_PROVIDER, createTranslateLoader, LogService } from '@alfresco/adf-core';
 import { AppComponent } from './app.component';
 import { AdfModule } from './adf.module';
 import { MaterialModule } from './material.module';
@@ -40,7 +40,6 @@ import { ThemePickerModule } from './components/theme-picker/theme-picker';
 import { DebugAppConfigService } from './services/debug-app-config.service';
 
 import { routing } from './app.routes';
-import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TaskAttachmentsComponent } from './components/process-service/task-attachments.component';
 import { ProcessAttachmentsComponent } from './components/process-service/process-attachments.component';
@@ -50,16 +49,23 @@ import { ProcessAttachmentsComponent } from './components/process-service/proces
     imports: [
         BrowserAnimationsModule,
         ReactiveFormsModule,
-        TranslateModule,
         BrowserModule,
         routing,
         FormsModule,
-        AdfModule,
         MaterialModule,
         ThemePickerModule,
         FlexLayoutModule,
         ChartsModule,
-        HttpClientModule
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient, LogService]
+            }
+        }),
+        CoreModule.forRoot(),
+        AdfModule
     ],
     declarations: [
         AppComponent,
@@ -90,7 +96,6 @@ import { ProcessAttachmentsComponent } from './components/process-service/proces
         OverlayViewerComponent
     ],
     providers: [
-        TranslateService,
         { provide: AppConfigService, useClass: DebugAppConfigService },
         {
             provide: TRANSLATION_PROVIDER,
