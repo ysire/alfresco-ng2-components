@@ -104,6 +104,14 @@ import { ProcessAttachmentsComponent } from './components/process-service/proces
                 name: 'app',
                 source: 'resources'
             }
+        },
+        {
+            provide: TRANSLATION_PROVIDER,
+            multi: true,
+            useValue: {
+                name: 'lazy-loading',
+                source: 'resources/lazy-loading'
+            }
         }
     ],
     entryComponents: [
