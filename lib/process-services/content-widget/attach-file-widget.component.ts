@@ -114,7 +114,7 @@ export class AttachFileWidgetComponent extends UploadWidgetComponent implements 
     }
 
     openSelectDialog(repoId: string, repoName: string) {
-        const accountIdentifier = 'alfresco-' + repoId + repoName;
+        const accountIdentifier = 'alfresco-' + repoId + '-' + repoName;
         this.contentDialog.openFileBrowseDialogBySite().subscribe(
             (selections: MinimalNodeEntryEntity[]) => {
                 this.uploadFileFromShare(selections, accountIdentifier);

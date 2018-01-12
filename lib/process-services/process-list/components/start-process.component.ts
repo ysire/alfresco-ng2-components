@@ -23,7 +23,7 @@ import { ProcessInstanceVariable } from '../models/process-instance-variable.mod
 import { ProcessDefinitionRepresentation } from './../models/process-definition.model';
 import { ProcessInstance } from './../models/process-instance.model';
 import { ProcessService } from './../services/process.service';
-import { AttachFileWidgetComponent, AttachFileWidgetComponent } from '../../content-widget';
+import { AttachFileWidgetComponent, AttachFolderWidgetComponent } from '../../content-widget';
 
 @Component({
     selector: 'adf-start-process',

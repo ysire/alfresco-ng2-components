@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
- /* tslint:disable:component-selector:no-console */
+/* tslint:disable:component-selector */
 
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import {
@@ -25,7 +25,6 @@ import {
 } from '@alfresco/adf-core';
 import { ContentNodeDialogService } from '@alfresco/adf-content-services';
 import { MinimalNodeEntryEntity } from 'alfresco-js-api';
-// import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'attach-folder-widget',
@@ -36,35 +35,44 @@ import { MinimalNodeEntryEntity } from 'alfresco-js-api';
 })
 export class AttachFolderWidgetComponent extends WidgetComponent implements OnInit {
 
-    constructor(private contentDialog: ContentNodeDialogService,
-                public formService: FormService){
-        super();
-    };
+    hasFolder: boolean;
+    selectedFolderName: string = '';
 
-    hasFolder: boolean ;
+    constructor(private contentDialog: ContentNodeDialogService,
+                public formService: FormService) {
+        super();
+    }
 
     ngOnInit() {
         if (this.field &&
-            this.field.value &&
-            this.field.value.length > 0) {
+            this.field.value) {
             this.hasFolder = true;
+            this.selectedFolderName = 'READ ME!';
         }
     }
 
     isDefinedSourceFolder() {
         return !!this.field.params &&
-               !!this.field.params.folderSource &&
-               !!this.field.params.folderSource.selectedFolder;
+            !!this.field.params.folderSource &&
+            !!this.field.params.folderSource.selectedFolder;
     }
 
     openSelectDialogFromFileSource() {
         let params = this.field.params;
-        if (this.isDefinedSourceFolder()) {
-            this.contentDialog.openFileBrowseDialogByFolderId(params.folderSource.selectedFolder.pathId).subscribe(
+        if (this.isDefinedSourceFolder() && !this.hasFolder) {
+            this.contentDialog.openFolderBrowseDialogByFolderId(params.folderSource.selectedFolder.pathId).subscribe(
                 (selections: MinimalNodeEntryEntity[]) => {
-                    //this.attachFolder
+                    this.selectedFolderName = selections[0].name;
+                    this.field.value = selections[0].id;
+                    this.hasFolder = true;
                 });
         }
+    }
+
+    removeFolder() {
+        this.field.value = null;
+        this.selectedFolderName = '';
+        this.hasFolder = false;
     }
 
 }
