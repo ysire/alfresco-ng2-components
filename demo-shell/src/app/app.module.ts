@@ -6,7 +6,7 @@ import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppConfigService, CoreModule, TRANSLATION_PROVIDER } from '@alfresco/adf-core';
+import { AppConfigService, TRANSLATION_PROVIDER } from '@alfresco/adf-core';
 import { AppComponent } from './app.component';
 import { AdfModule } from './adf.module';
 import { MaterialModule } from './material.module';
@@ -51,13 +51,12 @@ import { ProcessAttachmentsComponent } from './components/process-service/proces
         BrowserModule,
         routing,
         FormsModule,
+        AdfModule,
         MaterialModule,
         ThemePickerModule,
         FlexLayoutModule,
         ChartsModule,
-        HttpClientModule,
-        CoreModule,
-        AdfModule
+        HttpClientModule
     ],
     declarations: [
         AppComponent,
