@@ -331,7 +331,7 @@
     },
     "adf-start-proces": {
       "name": "My cool name",
-      "processDefinitionId": "myprocess:1:2505"
+      "processDefinitionName": "another"
     },
     "adf-task-list": {
         "presets": {

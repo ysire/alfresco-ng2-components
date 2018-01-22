@@ -18,7 +18,7 @@ Starts a process.
 | --- | --- |
 | appId |  (required): Limit the list of processes which can be started to those contained in the specified app |
 | name | (optional) name to assign to the current process |
-| processDefinitionId| (optional) definition ID of the process to start |
+| processDefinitionName| (optional) process definition name of the process to start |
 | variables | Variables in input to the process [RestVariable](https://github.com/Alfresco/alfresco-js-api/tree/master/src/alfresco-activiti-rest-api/docs/RestVariable.md)|
 | values | Parameter to pass form field values in the start form if is associated |
 
@@ -33,16 +33,16 @@ Starts a process.
 ### Details
 
 - If your app has only one processDefintion it will be automaticaly gather from the ***adf-start-process***.
-- If your app has multiple processDefintion and you didn't define processDefinitionId parameter a drop down will allow you to select which use
-- If your app has multiple processDefintion and you defined the processDefinitionId parameter the ***adf-start-process*** will be automatically instantiated with the selected process.
+- If your app has multiple processDefintion and you didn't define processDefinitionName parameter a drop down will allow you to select which use
+- If your app has multiple processDefintion and you defined the processDefinitionName parameter the ***adf-start-process*** will be automatically instantiated with the selected process.
 
-### Start a process with processDefinitionId
+### Start a process with processDefinitionName
 
 ```html
  <adf-start-process 
       [appId]="YOUR_APP_ID"
       [processName]="PROCESS_NAME"
-      [processDefinitionId]="PROCESS_DEF_ID">
+      [processDefinitionName]="PROCESS_DEF_NAME">
  </adf-start-process>		 
 ```
 

@@ -50,7 +50,7 @@ export class StartProcessInstanceComponent implements OnChanges {
     appId: number;
 
     @Input()
-    processDefinitionId: string;
+    processDefinitionName: string;
 
     @Input()
     variables: ProcessInstanceVariable[];
@@ -92,40 +92,35 @@ export class StartProcessInstanceComponent implements OnChanges {
             this.moveNodeFromCStoPS();
         }
 
-        if (changes['appId'] && changes['appId'].currentValue) {
-            this.appId = changes['appId'].currentValue;
+        if (changes.appId && changes.appId.currentValue) {
+            this.appId = changes.appId.currentValue;
         }
 
-        this.loadStartProcess();
+        this.loadStartProcess(this.appId);
     }
 
-    public loadStartProcess() {
+    public loadStartProcess(appId?: number) {
         this.resetSelectedProcessDefinition();
         this.resetErrorMessage();
-
-        if (this.appId) {
-            this.activitiProcess.getProcessDefinitions(this.appId).subscribe(
-                (processDefinitionRepresentations: ProcessDefinitionRepresentation[]) => {
-                    this.processDefinitions = processDefinitionRepresentations;
-
-                    if (this.processDefinitions.length === 1) {
-                        this.currentProcessDef = JSON.parse(JSON.stringify(this.processDefinitions[0]));
-                    } else {
-                        if (this.processDefinitionId) {
-                            this.processDefinitions = this.processDefinitions.filter((currentProcessDefinition) => {
-                                return currentProcessDefinition.id === this.processDefinitionId;
-                            });
-                            this.currentProcessDef = JSON.parse(JSON.stringify(this.processDefinitions[0]));
-                        }
-                    }
-                },
-                () => {
-                    this.errorMessageId = 'ADF_PROCESS_LIST.START_PROCESS.ERROR.LOAD_PROCESS_DEFS';
-                });
-        }
+        this.activitiProcess.getProcessDefinitions(appId).subscribe(
+            (processDefinitionRepresentations: ProcessDefinitionRepresentation[]) => {
+                this.processDefinitions = processDefinitionRepresentations;
+                if (this.hasSingleProcessDefinitions()) {
+                    this.processDefinitionName = this.processDefinitions[0].name;
+                } else {
+                    this.selectDefaultProcessDef();
+                }
+            },
+            () => {
+                this.errorMessageId = 'ADF_PROCESS_LIST.START_PROCESS.ERROR.LOAD_PROCESS_DEFS';
+            });
     }
 
-    public hasMultipleProcessDefinitions(): boolean {
+    private hasSingleProcessDefinitions(): boolean {
+        return !this.hasMultipleProcessDefinitions();
+    }
+
+    private hasMultipleProcessDefinitions(): boolean {
         return this.processDefinitions.length > 1;
     }
 
@@ -170,21 +165,28 @@ export class StartProcessInstanceComponent implements OnChanges {
         }
     }
 
-    compareProcessDef = (processDefId) => {
-        if (this.processDefinitions && this.processDefinitions.length === 1 && processDefId === this.processDefinitions[0].id) {
-            this.onProcessDefChange(processDefId);
+    selectDefaultProcessDef() {
+        if (this.processDefinitionName) {
+            const processDef = this.processDefinitions.find((processDefinition) => {
+                return processDefinition.name === this.processDefinitionName;
+            });
+            if (processDef) {
+                this.currentProcessDef = JSON.parse(JSON.stringify(processDef));
+            }
+        }
+    }
+
+    compareProcessDef = (processDefA, processDefB) => {
+        if (processDefA.id == processDefB.id) {
+            // this.currentProcessDef.id = processDefA.id;
+            //this.currentProcessDef = JSON.parse(JSON.stringify(processDefA));
             return true;
         }
     }
 
-    onProcessDefChange(processDefinitionId) {
-        let processDef = this.processDefinitions.find((processDefinition) => {
-            return processDefinition.id === processDefinitionId;
-        });
-        if (processDef) {
-            this.currentProcessDef = JSON.parse(JSON.stringify(processDef));
-        } else {
-            this.resetSelectedProcessDefinition();
+    onProcessDefChange(processDefinition) {
+        if (processDefinition) {
+            this.currentProcessDef = JSON.parse(JSON.stringify(processDefinition));
         }
     }
 

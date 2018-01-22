@@ -100,7 +100,7 @@ export class ProcessServiceComponent implements AfterViewInit, OnDestroy, OnInit
     @Input()
     appId: number = null;
 
-    defaultProcessDefinitionId: string;
+    defaultProcessDefinitionName: string;
     defaultProcessName: string;
 
     fileShowed = false;
@@ -257,7 +257,7 @@ export class ProcessServiceComponent implements AfterViewInit, OnDestroy, OnInit
             this.currentProcessInstanceId = null;
         });
         this.layoutType = AppsListComponent.LAYOUT_GRID;
-        this.defaultProcessDefinitionId = this.appConfig.get<string>('adf-start-proces.processDefinitionId');
+        this.defaultProcessDefinitionName = this.appConfig.get<string>('adf-start-proces.processDefinitionName');
         this.defaultProcessName = this.appConfig.get<string>('adf-start-proces.name');
     }
 

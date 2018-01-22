@@ -181,7 +181,7 @@ describe('StartProcessInstanceComponent', () => {
             getDefinitionsSpy = getDefinitionsSpy.and.returnValue(Observable.of(testMultipleProcessDefs));
             let change = new SimpleChange(null, '123', true);
             component.appId = 123;
-            component.processDefinitionId = 'my:process2';
+            component.processDefinitionName = 'My Process 2';
             component.ngOnChanges({ 'appId': change });
             fixture.detectChanges();
             fixture.whenStable().then(() => {
@@ -202,11 +202,11 @@ describe('StartProcessInstanceComponent', () => {
             });
         }));
 
-        it('should select processDefinition based on processDefinitionId input', async(() => {
+        it('should select processDefinition based on processDefinitionName input', async(() => {
             getDefinitionsSpy = getDefinitionsSpy.and.returnValue(Observable.of(testMultipleProcessDefs));
             let change = new SimpleChange(null, '123', true);
             component.appId = 123;
-            component.processDefinitionId = 'my:process2';
+            component.processDefinitionName = 'My Process 2';
             component.ngOnChanges({ 'appId': change });
             fixture.detectChanges();
             fixture.whenStable().then(() => {
