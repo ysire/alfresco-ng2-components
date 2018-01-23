@@ -160,6 +160,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
         if (this.hasItems) {
             const maxItems = this.pagination.maxItems;
             const skipCount = (this.next - 1) * maxItems;
+            this.pagination.skipCount = skipCount;
 
             this.handlePaginationEvent(PaginationComponent.ACTIONS.NEXT_PAGE, {
                 skipCount,
@@ -172,6 +173,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
         if (this.hasItems) {
             const maxItems = this.pagination.maxItems;
             const skipCount = (this.previous - 1) * maxItems;
+            this.pagination.skipCount = skipCount;
 
             this.handlePaginationEvent(PaginationComponent.ACTIONS.PREV_PAGE, {
                 skipCount,
@@ -184,6 +186,7 @@ export class PaginationComponent implements OnInit, OnDestroy {
         if (this.hasItems) {
             const maxItems = this.pagination.maxItems;
             const skipCount = (pageNumber - 1) * maxItems;
+            this.pagination.skipCount = skipCount;
 
             this.handlePaginationEvent(PaginationComponent.ACTIONS.CHANGE_PAGE_NUMBER, {
                 skipCount,
@@ -193,6 +196,8 @@ export class PaginationComponent implements OnInit, OnDestroy {
     }
 
     onChangePageSize(maxItems: number) {
+        this.pagination.skipCount = 0;
+        this.pagination.maxItems = maxItems;
         this.handlePaginationEvent(PaginationComponent.ACTIONS.CHANGE_PAGE_SIZE, {
             skipCount: 0,
             maxItems
