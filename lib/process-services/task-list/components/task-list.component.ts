@@ -16,20 +16,22 @@
  */
 
 import { DataColumn, DataRowEvent, DataTableAdapter, ObjectDataColumn, ObjectDataRow, ObjectDataTableAdapter } from '@alfresco/adf-core';
-import { AppConfigService, DataColumnListComponent, PaginationComponent } from '@alfresco/adf-core';
+import { AppConfigService, DataColumnListComponent, PaginationComponent, PaginationQueryParams, PaginatedComponent, UserPreferencesService } from '@alfresco/adf-core';
 import { AfterContentInit, Component, ContentChild, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { TaskQueryRequestRepresentationModel } from '../models/filter.model';
 import { TaskListModel } from '../models/task-list.model';
 import { taskPresetsDefaultModel } from '../models/task-preset.model';
 import { TaskListService } from './../services/tasklist.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Pagination } from 'alfresco-js-api';
 
 @Component({
     selector: 'adf-tasklist',
     templateUrl: './task-list.component.html',
     styleUrls: ['./task-list.component.css']
 })
-export class TaskListComponent implements OnChanges, OnInit, AfterContentInit {
+export class TaskListComponent implements OnChanges, OnInit, AfterContentInit, PaginatedComponent {
 
     requestNode: TaskQueryRequestRepresentationModel;
 
@@ -123,6 +125,8 @@ export class TaskListComponent implements OnChanges, OnInit, AfterContentInit {
 
     isLoading: boolean = true;
 
+    pagination: BehaviorSubject<Pagination>;
+
     /**
      * Toggles custom data source mode.
      * When enabled the component reloads data from it's current source instead of the server side.
@@ -135,31 +139,21 @@ export class TaskListComponent implements OnChanges, OnInit, AfterContentInit {
     isStreamLoaded = false;
 
     constructor(private taskListService: TaskListService,
-                private appConfig: AppConfigService) {
-    }
+        private userPreferences: UserPreferencesService,
+        private appConfig: AppConfigService) {
+        this.size = this.userPreferences.paginationSize;
 
-    initStream() {
-        if (!this.isStreamLoaded) {
-            this.isStreamLoaded = true;
-            this.taskListService.tasksList$.subscribe(
-                (tasks) => {
-                    let instancesRow = this.createDataRow(tasks.data);
-                    this.renderInstances(instancesRow);
-                    this.selectTask(this.landingTaskId);
-                    this.success.emit(tasks);
-                    this.isLoading = false;
-                }, (error) => {
-                    this.error.emit(error);
-                    this.isLoading = false;
-                });
-        }
+        this.pagination = new BehaviorSubject<Pagination>(<Pagination>{
+            maxItems: this.size,
+            skipCount: 0,
+            totalItems: 0
+        });
     }
 
     ngOnInit() {
         if (this.data === undefined) {
             this.data = new ObjectDataTableAdapter();
         }
-        this.initStream();
     }
 
     ngAfterContentInit() {
@@ -181,7 +175,6 @@ export class TaskListComponent implements OnChanges, OnInit, AfterContentInit {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        this.initStream();
         if (this.isPropertyChanged(changes)) {
             this.reload();
         }
@@ -213,7 +206,23 @@ export class TaskListComponent implements OnChanges, OnInit, AfterContentInit {
 
     private load(requestNode: TaskQueryRequestRepresentationModel) {
         this.isLoading = true;
-        this.loadTasksByState().subscribe();
+        this.loadTasksByState().subscribe(
+            (tasks) => {
+                let instancesRow = this.createDataRow(tasks.data);
+                this.renderInstances(instancesRow);
+                this.selectTask(this.landingTaskId);
+                this.pagination.next({
+                    count: tasks.data.length,
+                    maxItems: this.size,
+                    skipCount: this.page * this.size,
+                    totalItems: tasks.total
+                });
+                this.success.emit(tasks);
+                this.isLoading = false;
+            }, (error) => {
+                this.error.emit(error);
+                this.isLoading = false;
+            });
     }
 
     private loadTasksByState(): Observable<TaskListModel> {
@@ -391,5 +400,13 @@ export class TaskListComponent implements OnChanges, OnInit, AfterContentInit {
 
     private getDefaultLayoutPreset(): DataColumn[] {
         return (this.layoutPresets['default']).map(col => new ObjectDataColumn(col));
+    }
+
+    updatePagination(params: PaginationQueryParams) {
+
+    }
+
+    get supportedPageSizes(): number[] {
+        return this.userPreferences.getDifferentPageSizes();
     }
 }
